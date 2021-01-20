@@ -5442,9 +5442,7 @@ div#vmap {
   min-height: 400px;
   
 }
-main {
-  margin-left: 120px;
-}
+
 #login main {
   margin-left: 0;
 }
@@ -6716,4 +6714,17 @@ padding-bottom:10px;
 }
 .profile-name {
   line-height: 40px;
+}
+
+.p-dialog-mask {
+  background-color: #00000080 !important;
+}
+.p-dialog-content {
+  overflow-y: none;
+}
+.p-dialog-content {
+  max-height: 30%;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border-radius: 10px;
 }
