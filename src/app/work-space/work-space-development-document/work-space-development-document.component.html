@@ -1,0 +1,118 @@
+<div id="Tab3" class="tabcontent">
+    <div class="tab-header">
+        <div class="tab-heading">Development Documentation</div>
+    </div>
+    <!-- <form [formGroup]="formGroup" class="form-horizontal"> -->
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+        <div class="pt-50 pb-20 mr-30">
+            <div class="row pb-10">
+                <div class="col-sm-3">
+                    <div class="txt-lable">Document Name</div>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" formControlName="documentName" class="form-control txt-lable" id="documentName"
+                        placeholder="" [ngClass]=" { 'is-invalid' : submitted &&
+                        f1.documentName.errors }">
+                    <div *ngIf="submitted && f1.documentName.errors" class="invalid-feedback">
+                        <div *ngIf="f1.documentName.errors.required">Document Name is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-10">
+                <div class="col-sm-3">
+                    <div class="txt-lable">Document Type</div>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" formControlName="documentType" class="form-control txt-lable" id="documentType"
+                        placeholder="" [ngClass]=" { 'is-invalid' : submitted &&
+                        f1.documentType.errors }">
+                    <div *ngIf="submitted && f1.documentType.errors" class="invalid-feedback">
+                        <div *ngIf="f1.documentType.errors.required">Document Type is required</div>
+                    </div>
+                    <!-- <input type="text" placeholder="Web App, iOS, Android" class="txt-lable" /> -->
+                </div>
+            </div>
+
+            <div class="row pb-10">
+                <div class="col-sm-3">
+                    <div class="txt-lable">Document Description</div>
+                </div>
+                <div class="col-sm-8">
+                    <textarea placeholder="" formControlName="documentDescription" class="form-control txt-lable"
+                        id="documentType" [ngClass]=" { 'is-invalid' : submitted &&
+                f1.documentDescription.errors }"></textarea>
+                    <div *ngIf="submitted && f1.documentDescription.errors" class="invalid-feedback">
+                        <div *ngIf="f1.documentDescription.errors.required">Document Description is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-10">
+                <div class="col-sm-3">
+                    </div>
+                        <!-- <div class="col-sm-5">
+                    <input type="text" class="txt-outline w100">
+                </div> -->
+                        <div class="col-sm-4">
+                            <input formControlName="uploadFile" id="uploadFile" type="file"
+                                (change)="fileUpload($event.target.files)" class="form-control" name="uploadFile"
+                                [ngClass]=" { 'is-invalid' : submitted &&
+                        f1.isFileInput.errors }" />
+                            <input type="hidden" name="isFileInput" formControlName="isFileInput" />
+                            <div *ngIf="submitted && f1.isFileInput.errors" class="invalid-feedback">
+                                <div *ngIf="f1.isFileInput.errors.required">File is required</div>
+                            </div>
+                            <!-- {{f1.isFileInput.Value}} -->
+                            <!-- <input type="file" class="btn btn-outline-purple" /> -->
+                        </div>
+                </div>
+                <div class="row pb-10">
+
+                </div>
+                <div class="row pb-10">
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-2">
+                        <!-- <div class="attachments"><img src="assets/images/pdf_icon.png"><img
+                                src="assets/images/doc_icon.png"><img src="assets/images/csv_icon.png"></div> -->
+                    </div>
+                    <div class="col-sm-7">
+                        <!-- <button class="btn btn-outline mr-15">Upload File</button> -->
+                        <button type="submit" class="btn button-save ml-3">Save</button>
+                        <div style="margin-top: 20px;"><flash-messages></flash-messages></div>
+                        <!-- <button class="btn button-save">Save</button> -->
+                    </div>
+                </div>
+            </div>
+    </form>
+
+    <hr>
+    <table *ngIf="!!workSpaceDDLists.length" id="example" class="table">
+        <thead>
+            <tr>
+                <th>Document ID</th>
+                <th>Document Name</th>
+                <th>Description</th>
+                <th>Document Type</th>
+                <th>Uploaded By</th>
+                <th>Uploaded on</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let workSpaceDDList of workSpaceDDLists">
+                <td>{{workSpaceDDList.id}}</td>
+                <td>{{workSpaceDDList.docName}}</td>
+                <td>{{workSpaceDDList.docDesc}}</td>
+                <td>{{workSpaceDDList.docType}}</td>
+                <td>{{workSpaceDDList.createdBy}}</td>
+                <td>{{workSpaceDDList.createdTime}}</td>
+                <th>
+                    <div class="btn button-view" (click)="doDownload(workSpaceDDList)">View</div>
+                </th>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

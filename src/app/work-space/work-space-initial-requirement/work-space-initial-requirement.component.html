@@ -1,0 +1,75 @@
+<div id="Tab1" class="tabcontent">
+    <div class="tab-header">
+        <div class="tab-heading">Initial Requirements</div>
+
+        <div class="row pt-4">
+            <hr>
+
+            <div class="col-sm-10 mb-5">
+                <form class="form-horizontal" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <div class="row pt-3 pl-3">
+                            <label class="control-label width-125 ft-bold width-150" for="cname">Problem Statement<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <textarea [attr.disabled]="commonService.getRole() =='idea-owner' ? null : '' " rows="3" placeholder="" formControlName="problemStatement"
+                                    class="form-control rounded-0 bg-white" id="documentType" [ngClass]=" { 'is-invalid' : submitted &&
+                                    f1.problemStatement.errors }"></textarea>
+                                <div *ngIf="submitted && f1.problemStatement.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.problemStatement.errors.required">Problem Statement is required
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row pt-1 pl-3">
+                            <label class="control-label width-125 ft-bold width-150" for="cname">Solution Proposed<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <textarea [attr.disabled]="commonService.getRole() =='idea-owner' ? null : '' " rows="3" placeholder="" formControlName="proposedSolution"
+                                    class="form-control rounded-0 bg-white" id="documentType" [ngClass]=" { 'is-invalid' : submitted &&
+                                    f1.proposedSolution.errors }"></textarea>
+                                <div *ngIf="submitted && f1.proposedSolution.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.proposedSolution.errors.required">Solution Proposed is required
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row pt-3 pl-3">
+                            <label class="control-label width-125 ft-bold width-150" for="cname">Value Creation<sup>*</sup></label>
+                            <div class="col-sm-7">
+                                <textarea  [attr.disabled]="commonService.getRole() =='idea-owner' ? null : '' " rows="3" placeholder="" formControlName="valueCreation"
+                                    class="form-control rounded-0 bg-white" id="documentType" [ngClass]=" { 'is-invalid' : submitted &&
+                                    f1.valueCreation.errors }"></textarea>
+                                <div *ngIf="submitted && f1.valueCreation.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.valueCreation.errors.required">Value Creation is required
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                         <div *ngIf="commonService.getRole() =='idea-owner'" class="row pt-4">                            
+                            <div class="col-sm-9 text-right ">
+                                <button class="btn button-save ml-3">Save</button>
+                            </div>                                                       
+                        </div>
+                        <!-- <div class="row pt-4">
+                            <div class="col-sm-9 text-right ">
+                                <button class="btn btn-outline mr10px "><i class="fa fa-plus pr-2"></i> Add an
+                                    another</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

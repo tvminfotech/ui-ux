@@ -1,0 +1,121 @@
+<main>
+    <div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 30px;">
+        <div class="tab-header">
+            <div class="tab-heading">Estimation</div>
+        </div>
+        <div class="container">
+            <div class="payment-container p-0 m-0 bg-none border-none">
+                <div class="row mt-5">
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <input (click)="radioClick('Upload')" type="radio" id="tab1" name="optionsRadios">
+                            <label for="tab1">Upload my estimation document</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <input (click)="radioClick('HiveZen')" type="radio" id="tab2" name="optionsRadios" checked>
+                            <label for="tab2">Use the HiveZen Estimation</label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="mb-5">
+                <div class="estimate-table" *ngIf="!isUploadFlag">
+                    <table id="example1" class="table mt-2 ">
+                        <thead>
+                            <tr>
+                                
+                                <th width="600">Phase</th>
+                                <th>Man Month</th>
+                                <th>Cost(USD)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white">
+                                <td>Initial Requirement</td>
+                                <td class="badge-status bg-purple ft-white"><span>20 Months</span></td>
+                                <td class="badge-status bg-light-gray"><span>$70,000</span></td>
+                                <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
+                                    <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td>Process Flow</td>
+                                <td class="badge-status bg-purple ft-white"><span>10 Months</span></td>
+                                <td class="badge-status bg-light-gray"><span>$15,000</span></td>
+                                <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
+                                    <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td>Application Flow</td>
+                                <td class="badge-status bg-purple ft-white"><span>7 Months</span></td>
+                                <td class="badge-status bg-light-gray"><span>$30,000</span></td>
+                                <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
+                                    <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td>Wireframe</td>
+                                <td class="badge-status bg-purple ft-white"><span>5 Months</span></td>
+                                <td class="badge-status bg-light-gray"><span>$7,000</span></td>
+                                <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
+                                    <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row d-flex mt-3" *ngIf="!isUploadFlag">
+                    <a style="cursor: pointer;" (click)="addEstimation()"><i class="fa fa-plus plus-icon"></i></a>
+                    <input type="text" class="add-row pl-2" placeholder="add another row">
+                </div>
+                    <div class="row" *ngIf="isUploadFlag">
+                        <div class="col-sm-3 mb-5 mt-5">
+                            <div class="upload-btn-wrapper1">
+                                <button class="btn1">Upload File</button>
+                                <input type="file" name="myfile" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="isUploadFlag">
+                        <div class="col-sm-3">
+                            <div class="excel-box">
+                                <img src="assets/images/excel.PNG" width="50" class="mb-2">
+                                <p class="mb-3 ft-12">Projects Estimation.xlxs</p>
+                                <button class="btn btn-outline mr-15 bt-3-purple">View</button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row mt-5 ml-2">
+
+                    <div *ngIf="!isUploadFlag" class="btn button-save">Save</div>
+                </div>
+                <div class="row">
+                    <div class="mt-5 pl-3 pb-1">Comments</div>
+                </div>
+                <div class="text-comment">
+                    <i class="fa fa-close cls-btn" onclick="javascript:eraseText();"> </i>
+                    <textarea id='output' cols="80" rows=5 readonly>
+                            Michal | Dec 31, 2020 4.40 PM IST
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been  
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been                     
+                            Reply
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been  
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been                                    
+                        </textarea>
+                </div>
+                <div class="text-comment mt-3 mb-5">
+                    <i class="fa fa-close cls-btn" onclick="javascript:eraseText1();"> </i>
+                    <textarea id='output1' cols="80" rows=3 readonly>
+                            Michal | Dec 31, 2020 4.40 PM IST
+                            Lorem Ipsum is simply dummy text of the printing                   
+                        </textarea>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</main>

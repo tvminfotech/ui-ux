@@ -1,0 +1,55 @@
+<app-work-space-sub-nav></app-work-space-sub-nav>
+<main>
+  <div class="tab-container" style="border-radius: 0px !important;">
+    <div class="tab">
+      <div class="tab-heading"><table><tr><td style="width: 25%; border-radius:5px;color: #fff; background: #6d366d;width: 22px;padding: 5px;">{{wsPocName.charAt(0).toUpperCase()}}</td><td style="width: 75%; white-space:nowrap"><span>{{wsPocName}}</span></td><td><img
+        src="assets/images/back-icon.png"></td></tr></table></div>
+      
+      <div  class="input-group mb-4" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
+        <ng-container *ngIf="ShowPhase(workSpaceBoardName.customBoardName)">
+        <div    class="input-group-prepend">
+          <!--
+          <a style="border-radius: 50%;background-color: #7c4791;margin-left: 10px;width: 20px;"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i style="margin-left: 8px;margin-right: 10px;color: #fff;" class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            <img src="assets/images/down-arrow-green.png">
+          </a>
+          -->
+          <a style="margin-left: 10px;"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="assets/images/down-arrow-purple.png">
+          </a>
+          <div class="dropdown-menu p-3 custom-dropdown-menu" >
+            <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              Rename</a>
+           <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+           <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-archive" aria-hidden="true"></i>
+             Close</a>
+          </div>
+        </div>
+        <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.customBoardName)">
+          <button class="tablinks" style="padding-left: 10px;padding-top: 2px;padding-bottom: 0px;padding-right: 0px;">
+          <div>{{workSpaceBoardName.customBoardName}}</div>
+        </button></a>
+        <!--
+        <div class="dropdown" style="margin-left: 10px;">
+          {{workSpaceBoardName.customBoardName}} 
+          <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.customBoardName)" class="btn bg-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span><i class="fa fa-sort-desc" aria-hidden="true"></i>    
+            </span>     
+          </a>  
+          <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+               Rename</a>
+            <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+            <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-archive" aria-hidden="true"></i>
+              Archieve</a>
+          </div>
+        </div>
+        --> 
+      </ng-container>   
+      </div>
+      
+     </div>
+    <router-outlet></router-outlet>
+
+  </div>
+</main>

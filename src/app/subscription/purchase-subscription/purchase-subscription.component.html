@@ -1,0 +1,132 @@
+<main>
+    <div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 0px;">
+        <div class="tab-header">
+            <div class="header-box justify-content-center">
+                <div class="tab-heading">Purchase Subscriptions</div>
+
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="seat-box">
+                <p class="width-50 ml-1 mr-2 ft-12">3 Seats minimum</p>
+                <button (click)="selectedSeats(seatlist,seatlist.seats,i)" 
+                *ngFor="let seatlist of seatLists;let i = index;" class="btn button-save mr-2"
+                [ngClass]="{'button-save': i === selectedSeatsIndex}">
+                    {{seatlist['seats']}} seats</button>
+                
+                <!--
+                <button class="btn button-save mr-2">5 seats</button>
+                <button class="btn btn-outline mr-2">10 seats</button>
+                <button class="btn btn-outline mr-2">15 seats</button>
+                <button class="btn btn-outline mr-2">20 seats</button>
+                <button class="btn btn-outline mr-2">25 seats</button>
+                <button class="btn btn-outline mr-2">30 seats</button>
+                <button class="btn btn-outline mr-2">40 seats</button>
+                <button class="btn btn-outline mr-2">50 seats</button>
+                <button class="btn btn-outline mr-2">100 seats</button>
+                -->
+            </div>
+        </div>
+        <div class="row purchase-subscription">
+            <div class="col-sm-3 position-relative">
+                <div class="purchase-desc-container">
+                    <p class="ft-14 ft-bold">Number of POCs</p>
+                    <p class="ft-14 ft-bold">File storage size</p>
+                    <p class="ft-14 ft-bold">Activity log</p>
+                    <p class="ft-14 ft-bold">Free sms notification</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="bg-green">
+                    <h3 class="ft-16 ft-white pt-3 pb-3 mb-3">Basic</h3>
+                </div>
+                <div class="purchase-container">
+                    <div class="price-container bt-color-green">
+                        <h1>${{basicPMAmt}}</h1>
+                        <span class="pb-1">per user/month</span>
+                        <span  class="ft-12 ft-green pb-3">Total ${{basicAmt}} per month</span>
+                    </div>
+
+                    <button routerLink="/subscription/make-payment" class="btn ft-white bg-90-black pl-4 pr-4 mt-3">Continue</button>
+
+                    <p class="ft-14 bt-bottom">10</p>
+                    <p class="ft-14 bt-bottom">100 GB</p>
+                    <p class="ft-14 bt-bottom">1 week</p>
+                    <p class="ft-14">1000 messages</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="bg-blue1">
+                    <h3 class="ft-16 ft-white pt-3 pb-3 mb-3">Standard</h3>
+                </div>
+                <div class="purchase-container">
+                    <div class="price-container bt-color-blue">
+                        <h1>${{stdPMAmt}}</h1>
+                        <span class="pb-1">per user/month</span>
+                        <span class="ft-12 ft-blue pb-3">Total ${{stdAmt}} per month</span>
+                    </div>
+
+                    <button routerLink="/subscription/make-payment" class="btn ft-white bg-90-black pl-4 pr-4 mt-3">Continue</button>
+
+                    <p class="ft-14 bt-bottom">20</p>
+                    <p class="ft-14 bt-bottom">500 GB</p>
+                    <p class="ft-14 bt-bottom">6 months</p>
+                    <p class="ft-14">5000 messages</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="bg-merown">
+                    <h3 class="ft-16 ft-white pt-3 pb-3 mb-3">Pro</h3>
+                </div>
+                <div class="purchase-container">
+                    <div class="price-container bt-color-merown">
+                        <h1>${{proPMAmt}}</h1>
+                        <span class="pb-1">per user/month</span>
+                        <span class="ft-12 ft-merown pb-3">Total ${{proAmt}} per month</span>
+                    </div>
+
+                    <button routerLink="/subscription/make-payment" class="btn ft-white bg-90-black pl-4 pr-4 mt-3">Continue</button>
+
+                    <p class="ft-14 bt-bottom">50</p>
+                    <p class="ft-14 bt-bottom">1 TB</p>
+                    <p class="ft-14 bt-bottom">1 year</p>
+                    <p class="ft-14">Unlimited messages</p>
+                </div>
+            </div>
+        </div>
+        <div class="row ml-5 mr-5 pb-2 bt-bottom">
+            <h4>Frequently asked questions</h4>
+        </div>
+
+        <div class="row ml-5 mr-5 pt-3 pb-3 bt-bottom">
+            <p class="ft-14 ft-bold">Q <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+            <p class="ft-14 ft-light-gray">A <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+        </div>
+        <div class="row ml-5 mr-5 pt-3 pb-3 bt-bottom">
+            <p class="ft-14 ft-bold">Q <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+            <p class="ft-14 ft-light-gray">A <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+        </div>
+        <div class="row ml-5 mr-5 pt-3 pb-3 bt-bottom">
+            <p class="ft-14 ft-bold">Q <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+            <p class="ft-14 ft-light-gray">A <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+        </div>
+        <div class="row ml-5 mr-5 pt-3 pb-3 bt-bottom">
+            <p class="ft-14 ft-bold">Q <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+            <p class="ft-14 ft-light-gray">A <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+        </div>
+        <div class="row ml-5 mr-5 pt-3 pb-3 mb-5 bt-bottom">
+            <p class="ft-14 ft-bold">Q <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+            <p class="ft-14 ft-light-gray">A <span class="pl-4">"Quote doesn't seem to include the post implementatino
+                    support. Kindly add in the cost and effort for the same"</span></p>
+        </div><br><br>
+    </div>
+</main>>

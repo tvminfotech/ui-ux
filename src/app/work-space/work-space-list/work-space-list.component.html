@@ -1,0 +1,44 @@
+<nav class="main-menu">
+    <ul>
+        <li *ngIf="commonService.getRole() =='idea-owner'" >
+            <a  (click)="createWorkspace()"  style="cursor: pointer;" [class.active]="isCreateWorkSpace == 'create'"> 
+                <img src="assets/images/menu-icons/main-menu1.png">
+            </a>
+        </li>
+        <div *ngFor="let workSpace of workSpacelist;">
+            <li>
+                <a (click)="view(workSpace.id,workSpace.pocName)" [class.active]="environmentService.getPOCId()== workSpace.id "  style="cursor: pointer;">
+                    <img src="assets/images/menu-icons/main-menu3.png" [title]="workSpace.pocName">
+                </a>
+            </li>
+            </div>
+        <!--
+        <div *ngFor="let workSpace of workSpacelist;" style="padding-left: 6px;">
+        <li>
+            <a (click)="view(workSpace.id,workSpace.wsPocName)" class="active" style="cursor: pointer;">
+                <div style="width:22px;height: 22px;padding-left: 0.4em;" [title]="workSpace.wsPocName">
+                    {{workSpace.wsPocName.charAt(0).toUpperCase()}}</div>
+            </a>
+        </li>
+        </div>
+        -->
+        <!--
+        <li>
+            <a (click)="view('w2')">
+                <img src="assets/images/menu-icons/main-menu3.png">
+            </a>
+        </li>
+        <li>
+            <a (click)="view('w3')">
+                <img src="assets/images/menu-icons/main-menu4.png">
+            </a>
+        </li>
+        <li>
+            <a (click)="view('w4')">
+                <img src="assets/images/menu-icons/main-menu5.png">
+            </a>
+        </li>
+        -->
+    </ul>
+
+</nav>

@@ -1,0 +1,114 @@
+<div id="Tab3" class="tabcontent">
+  <div class="tab-header">
+    <div class="tab-heading">Prototype</div>
+    <div *ngIf="commonService.getRole() !='reviewer'" class="row pt-4">
+      <label class="control-label col-sm-3" for="acname">Adobe XD link</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control bg-white" id="acname" [(ngModel)]="link" placeholder="Enter Link">
+      </div>
+      <button class="btn button-save ml-5" (click)="onSaveLink()">Save</button>
+    </div>
+
+    <hr>
+    <div class="row">
+      <div *ngIf="canShowIframe">
+        <iframe width="1300" height="500" id='iframe' [src]=iframeUrl frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="form-group">
+      <div *ngIf="commonService.getRole() !='developer'" class="row pt-4">
+
+        <div class="col-sm-9">
+          <label class="control-label width-125 " for="cname">Review Comments</label>
+          <textarea class="form-control rounded-0 bg-white" id="Description" rows="3"></textarea>
+        </div>
+
+      </div>
+      <div *ngIf="commonService.getRole() !='developer'" class="row pt-4">                            
+        <div class="col-sm-9 text-right ">
+            <button class="btn button-save ml-3">Save</button>
+        </div>                                                       
+    </div>
+      <div class="clear-float"></div>
+      <div *ngIf="commonService.getRole() =='idea-owner'" class="review-container">
+        <div class="heading wireframe_css wireframe_pt0_css">Request Review</div>
+        <div class="row">
+          <div class="col-sm-3 pr-0">
+            <div class="form-group">
+              <select class="form-control" [(ngModel)]="selectedRole" (change)="onChangeReview($event)">
+                <option *ngFor="let item of reviewers" value={{item.id}} id={{item.id}}>{{item.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2 pl-10 pb-20">
+            <button (click)="selectReviewer()" class="btn btn-outline-purple">Select</button>
+          </div>
+        </div>
+        <div class="row" *ngIf="selectedReviewer.length ==0">
+          <div class="col-sm-12">
+          <div>No reviewer available</div> 
+        </div>
+        </div>
+        <div class="row" *ngIf="selectedReviewer.length >0">
+          <div class="col-sm-12">
+            
+            <button *ngFor="let item of selectedReviewer;let i = index;" class="btn btn-outline btn-close">{{item['name']}}<img (click)="deleteSelectedReviewer(item,i)" src="assets/images/btn-close.png"></button>
+            <!--
+            <button class="btn btn-outline btn-close">Reviewer 1<img src="assets/images/btn-close.png"></button>
+            <button class="btn btn-outline btn-close">Reviewer 2<img src="assets/images/btn-close.png"></button>
+            <button class="btn btn-outline btn-close">Reviewer 3<img src="assets/images/btn-close.png"></button>
+            <button class="btn btn-outline btn-close">Reviewer 4<img src="assets/images/btn-close.png"></button>
+            -->
+            <button class="btn btn-outline-purple">Request Review</button>
+          </div>
+        </div>
+        <div class="row pl-3 pt-3">
+          <div class="heading wireframe_pt1_css wireframe_pt_20">Existing Reviewer</div>
+        </div>
+        <div class="row" *ngIf="existingReviewer.length ==0">
+          <div class="col-sm-12">
+          <div>No reviewer available</div> 
+        </div>
+        </div>
+        <div class="row" *ngIf="existingReviewer.length >0">
+          <div class="col-sm-12">
+            <button *ngFor="let item of existingReviewer;let i = index;" class="btn btn-outline btn-close" disabled><span class="ft-black">{{item['name']}}</span></button>
+            
+            <!--
+            <button class="btn btn-outline btn-close" disabled><span class="ft-black">Reviewer 1</span></button>
+            <button class="btn btn-outline btn-close" disabled><span class="ft-black">Reviewer 2</span></button>
+            <button class="btn btn-outline btn-close" disabled><span class="ft-black">Reviewer 3</span></button>
+            <button class="btn btn-outline btn-close" disabled><span class="ft-black">Reviewer 4</span></button>					
+            -->
+          </div>
+        </div>
+      </div>
+      <div  [ngClass]="{'wireframe_pt_20': commonService.getRole() !='idea-owner'}"  class="heading wireframe_css wireframe_pt1_css">Comments Received</div>
+      <table id="example" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Reviewer</th>
+            <th>Comments</th>
+            <th>Accept</th>
+            <th>Reject</th>
+            <th>Assigned to</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let commentsReceiveddtl of commentsReceived">
+            <td><a (click)="editComments(commentsReceiveddtl)" style="cursor: pointer;"><i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
+            <td>{{commentsReceiveddtl.date}}</td>
+            <td><span class="badge-reviewer"><img src="assets/images/review.png"> {{commentsReceiveddtl.reviewer}}</span></td>
+            <td>{{commentsReceiveddtl.comments}}</td>
+            <td><span class="badge" [ngClass]="{'badge-accepted': commentsReceiveddtl.action === 'Accepted'}" >Accepted</span></td>
+            <td><span class="badge" [ngClass]="{'badge-rejected': commentsReceiveddtl.action === 'Rejected'}">Reject</span></td>
+            <td>{{commentsReceiveddtl.assignTo}}</td>
+            <td class="badge-status badge-working"><span>{{commentsReceiveddtl.status}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

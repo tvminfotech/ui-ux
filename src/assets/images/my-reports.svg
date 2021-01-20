@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#010101;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#010101;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{display:none;fill:none;stroke:#010101;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#010101;stroke-linecap:round;stroke-linejoin:round;}
+	.st4{fill:none;stroke:#010101;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2.3333,2.3333;}
+	.st5{display:none;}
+	.st6{display:inline;}
+</style>
+<g id="My_Reports">
+	<path class="st0" d="M23.1,29H8c-0.6,0-1-0.5-1-1v-6.3"/>
+	<path class="st0" d="M7,9V4c0-0.5,0.4-1,1-1h19c0.5,0,1,0.5,1,1v20.1"/>
+	<path class="st1" d="M23.2,29v-3.9c0-0.5,0.4-1,1-1H28L23.2,29z"/>
+	<path class="st2" d="M27,21H5c-0.6,0-1-0.5-1-1V4c0-0.5,0.4-1,1-1h22c0.5,0,1,0.5,1,1v16C28,20.5,27.5,21,27,21z"/>
+	<line class="st0" x1="17" y1="8" x2="25.5" y2="8"/>
+	<g>
+		<g>
+			<line class="st3" x1="21" y1="22.8" x2="19" y2="22.8"/>
+			<line class="st4" x1="16.7" y1="22.8" x2="13.2" y2="22.8"/>
+			<line class="st3" x1="12" y1="22.8" x2="10" y2="22.8"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<line class="st3" x1="21" y1="25.8" x2="19" y2="25.8"/>
+			<line class="st4" x1="16.7" y1="25.8" x2="13.2" y2="25.8"/>
+			<line class="st3" x1="12" y1="25.8" x2="10" y2="25.8"/>
+		</g>
+	</g>
+	<g class="st5">
+		<g class="st6">
+			<line class="st3" x1="21" y1="26.8" x2="19" y2="26.8"/>
+			<line class="st4" x1="16.7" y1="26.8" x2="13.2" y2="26.8"/>
+			<line class="st3" x1="12" y1="26.8" x2="10" y2="26.8"/>
+		</g>
+	</g>
+	<path class="st0" d="M24,13h-6c-0.6,0-1-0.4-1-1V7c0-0.6,0.4-1,1-1h6c0.6,0,1,0.4,1,1v5C25,12.5,24.5,13,24,13z"/>
+	<path class="st0" d="M7,18H6c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1h1c0.6,0,1,0.4,1,1v2C8,17.5,7.5,18,7,18z"/>
+	<path class="st0" d="M10,18H9c-0.6,0-1-0.4-1-1v-4c0-0.6,0.4-1,1-1h1c0.6,0,1,0.4,1,1v4C11,17.5,10.5,18,10,18z"/>
+	<path class="st0" d="M13,18h-1c-0.6,0-1-0.4-1-1v-7c0-0.6,0.4-1,1-1h1c0.6,0,1,0.4,1,1v7C14,17.5,13.5,18,13,18z"/>
+</g>
+</svg>

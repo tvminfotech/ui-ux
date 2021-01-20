@@ -1,0 +1,34 @@
+<div class="modal-body">
+    <button type="button" class="close dialog-close" data-dismiss="modal" aria-label="Close" (click)="Close()">
+       <img src="assets/images/close-popup.png">
+      </button>
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="dialog-left"> 
+                    <div class="heading"><span>Add Internal Resource</span></div>
+                      <div class="row pt-50">
+                        <div class="col-sm-12"><div class="txt-lable">Resource</div></div>
+                        <div class="col-sm-12">
+                            <select class="form-control bg-white" [(ngModel)]="nameModel">
+                                <option value="James">James</option>
+                                <option value="John">John</option>
+                                <option value="Robert">Robert</option>
+                            </select>
+                        </div>
+						<div class="col-sm-12"><div class="txt-lable">Role</div></div>
+                        <div class="col-sm-12">
+                            <select class="form-control bg-white" [(ngModel)]="roleModel">
+                                <option value="Developer">Developer</option>
+                                <option value="Reviewer">Reviewer</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12"><div class="txt-lable">Email</div></div>
+                        <div class="col-sm-12"><input type="text" class="form-control bg-white" id="Email" placeholder="Add email here"></div>
+                        
+						<div class="col-sm-6 pr-0">&nbsp;</div>
+                        <div class="col-sm-6 pl-0"><button class="btn button-save mt-5 w100">Save</button></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
