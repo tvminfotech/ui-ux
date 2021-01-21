@@ -8,7 +8,7 @@
         <div *ngFor="let workSpace of workSpacelist;">
             <li>
                 <a (click)="view(workSpace.id,workSpace.pocName)" [class.active]="environmentService.getPOCId()== workSpace.id "  style="cursor: pointer;">
-                    <img src="assets/images/menu-icons/main-menu3.png" [title]="workSpace.pocName">
+                    <div class="menu-item bg-pink" [title]="workSpace.pocName">W</div>
                 </a>
             </li>
             </div>
