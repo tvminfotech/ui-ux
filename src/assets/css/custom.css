@@ -814,7 +814,8 @@ nav ul, nav li {
     background: #C5C7D0;
   }
   nav.main-menu > ul {
-    margin: 7px 0
+    margin: 7px 0;
+    margin-top: 20px;
   }
   nav.main-menu > ul.logout {
     position: absolute;
@@ -5389,10 +5390,10 @@ div#vmap {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.2rem 1.5rem;
+  padding: 0px 20px;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: #808080 !important;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -5400,7 +5401,7 @@ div#vmap {
   font-size: 14px;
 }
 .dropdown-divider {
-  margin: 0;
+  margin: 5px 0;
 }
 .tab {
   float: left;
@@ -6193,7 +6194,7 @@ hr {
   line-height: 14px;
   text-align: left;
   padding: 0;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 .button-save:hover, .button-save:focus, .button-save:visited {
   background-color: #72308b;
@@ -6276,12 +6277,12 @@ input[type=checkbox], input[type=radio] {
   padding: 5px 10px;
 }
 .collapse-head .status{
-  padding: 5px 10px;
+  padding: 8px 10px;
   background-color: #D9D9D9;
   text-align: center;
 }
 .collapse-head .date{
-  padding: 5px 10px;
+  padding: 8px 10px;
 }
 .bl-5-purple {
   border-left: 5px solid #7C4791;
@@ -6727,4 +6728,41 @@ padding-bottom:10px;
   overflow: hidden !important;
   padding: 0 !important;
   border-radius: 10px;
+}
+.ml-60 {
+  margin-left: 60px;
+}
+.noborder {
+  border: none !important;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+.toggle-icon {
+  float: left;
+}
+.toggle-heading {
+  float: left;
+}
+.toggle-menu {
+  margin-top: 35px;
+    margin-left: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #808080 !important;
+  background-color: #f8f9fa;
+}
+.dropdown-item img {
+  height: 18px;
+  margin-right: 10px;
+}
+.footer {
+  font-size: 12px;
+  text-align: right;
+  color: #808080;
+  box-shadow: none;
+  background-color: transparent !important;
 }
