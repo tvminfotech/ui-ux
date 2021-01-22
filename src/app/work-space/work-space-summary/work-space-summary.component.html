@@ -1,10 +1,6 @@
-<main>
-    <div id="Tab1" class="tabcontent1" style="padding: 30px 0px 0px 30px;">
-        <div class="tab-header">
-            <div class="header-box">
-                <div class="tab-heading">Workspace Summary</div>
-            </div>
-            <div class="container">
+<main class="ml-120">
+    <div class="container-fluid">
+        <div class="page-heading">Workspace Summary</div>
                 <div class="poc-box">
                     <div class="row">
                         <div class="col">
@@ -19,17 +15,20 @@
                             <label class="ft-18">Status</label>
                             <p class="ft-color-gray80">{{POCDetails.statusName}}</p>
                         </div>
-                        <div *ngIf="commonService.getRole() =='idea-owner'" class="col">
+                        <div class="col-sm-4">
+                      
+                        <div *ngIf="commonService.getRole() =='idea-owner'">
+                            <div class="btn-box mt-1">
+                                <button class="btn button-save ml-3" (click)="onClosePOC()">Close POC</button>
+                            </div>
+                        </div>
+                        <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
                                 <button class="btn button-save ml-3" (click)="onManagePOC()">Manage POC Workspace</button>
 
                             </div>
                         </div>
-                        <div *ngIf="commonService.getRole() =='idea-owner'" class="col">
-                            <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3" (click)="onClosePOC()">Close POC</button>
-                            </div>
-                        </div>
+                    </div>
                     </div>
                 </div>
 
@@ -37,58 +36,62 @@
                     <div class="col-sm-9 mt-5">
                         <div class="row">
                             <div class="col-sm-4">
-                                <label class="ft-18">Team Members</label><a href=""> <i class="fa fa-plus-circle ml-2"
-                                        aria-hidden="true"></i></a>
+                                <label class="ft-18">Team Members</label><a href=""><img src="assets/images/add-purple.png" class="add-user"></a>
                             </div>
-                            <div class="col-sm-4 pl-5">
+                            <div class="col-sm-4">
                                 <label class="ft-18 ">Role</label>
                             </div>
-                            <div class="col-sm-4 ">
+                            <div class="col-sm-4">
                                 <label class="ft-18">Last Login</label>
                             </div>
 
                         </div>
 
                         <div class="bg-white mr-5 border-gray mt-2">
-                            <div class="row pt-3 pb-3">
+                            <div class="row pt-2 pb-2">
                                 <div class="col-sm-4 align-content-center">
-                                    <img class="pl-4" src="assets/images/member.PNG"><span>Benjamin</span>
+                                    <div class="profile-default">B</div><span class="profile-name">Benjamin</span>
                                 </div>
-                                <div class="col-sm-4 text-center pt-2">
+                                <div class="col-sm-4 pt-2 pl-28">
                                     <span>Database Manager</span>
                                 </div>
-                                <div class="col-sm-4 text-center pt-2">
+                                <div class="col-sm-4 pt-2 pl-44">
                                     <span>04/13/2020 17:15 PM</span>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="bg-white mr-5 border-gray mt-2">
-                            <div class="row pt-3 pb-3">
+                            <div class="row pt-2 pb-2">
                                 <div class="col-sm-4 align-content-center">
-                                    <img class="pl-4" src="assets/images/member.PNG"><span>Arya Winterfell</span>
+                                    <div class="profile-default">AW</div><span class="profile-name">Arya Winterfell</span>
                                 </div>
-                                <div class="col-sm-4 text-center pt-2">
-                                    <span>Visual Manager</span>
+                                <div class="col-sm-4 pt-2 pl-28">
+                                    <span>Manager</span>
                                 </div>
-                                <div class="col-sm-4 text-center pt-2">
+                                <div class="col-sm-4 pt-2 pl-44">
                                     <span>04/13/2020 17:15 PM</span>
                                 </div>
 
                             </div>
                         </div>
                         <div class="bg-white mr-5 border-gray mt-2">
-                            <div class="row pt-3 pb-3">
+                            <div class="row pt-2 pb-2">
                                 <div class="col-sm-4 align-content-center">
-                                    <img class="pl-4" src="assets/images/member.PNG"><span>Lawrence</span>
+                                    <div class="profile-default">L</div><span class="profile-name">Lawrence</span>
                                 </div>
-                                <div class="col-sm-4 text-center pt-2">
-                                    <span>Content Writer</span>
+                                <div class="col-sm-4 pt-2 pl-28">
+                                    <span>Database Manager</span>
                                 </div>
-                                <div class="col-sm-4 text-center pt-2">
+                                <div class="col-sm-4 pt-2 pl-44">
                                     <span>04/13/2020 17:15 PM</span>
                                 </div>
+
                             </div>
                         </div>
+                      
+                        
+                        
                         <div class="header-box mt-5">
                             <div class="tab-heading">Reviews</div>
                         </div>
@@ -125,56 +128,47 @@
                     </div>
 
                     <div class="col-sm-3 milestons-list pl-0 mt-5">
-
                         <ul>
-                            <a href="#">
-                                <li class="active">
-
-                                    <p class="ft-gray ft-12 pb-4">Milestone 1</p>
-                                    <h4>Initial Requirement</h4>
-                                    <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
-
-                                </li>
-                            </a>
-                            <a href="#">
-                                <li>
-                                    <p class="ft-gray ft-12 pb-4">Milestone 2</p>
-                                    <h4>Process Flow</h4>
-                                    <p class="ft-gray ft-12">Inprogress</p>
-                                </li>
-                            </a>
-                            <a href="#">
-                                <li>
-                                    <p class="ft-gray ft-12 pb-4">Milestone 3</p>
-                                    <h4>Application Flow</h4>
-                                    <p class="ft-gray ft-12">Inprogress</p>
-                                </li>
-                            </a>
-                            <a href="#">
-                                <li>
-                                    <p class="ft-gray ft-12 pb-4">Milestone 4</p>
-                                    <h4>Wireframe</h4>
-                                    <p class="ft-gray ft-12">Inprogress</p>
-                                </li>
-                            </a>
-                            <a href="#">
-                                <li>
-                                    <p class="ft-gray ft-12 pb-4">Milestone 5</p>
-                                    <h4>Prototype</h4>
-                                    <p class="ft-gray ft-12">Not Started</p>
-                                </li>
-                            </a>
-                            <a href="#">
-                                <li>
-                                    <p class="ft-gray ft-12 pb-4">Milestone 6</p>
-                                    <h4>Review</h4>
-                                    <p class="ft-gray ft-12">Not Started</p>
-                                </li>
-                            </a>
+                       
+                            <li class="active">                 
+                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
+                                <h4>Initial Requirement</h4>
+                                <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
+                                   
+                            </li>
+                            <li>                                        
+                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
+                                <h4>Process flow</h4>
+                                <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
+                            </li>
+                            <li>                                        
+                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
+                                <h4>Application flow</h4>
+                                <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
+                            </li>
+                            <li>                                        
+                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
+                                <h4>Wireframe</h4>
+                                <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
+                            </li>
+                            <li>                                        
+                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
+                                <h4>Prototype</h4>
+                                <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
+                            </li>
+                            <li>                                        
+                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
+                                <h4>Review</h4>
+                                <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+      </div>
 </main>
+
+<footer>
+    <div class="container-fluid">
+        <div class="footer">©HiveZen.All rights reserved</div>
+    </div>
+</footer>

@@ -6495,9 +6495,9 @@ button:focus {
 }
 
 .poc-box {
-  background-color: white;
+  background-color: #fcfcfe;
   padding: 30px;
-  margin-right: 75px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -6626,6 +6626,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  float: right;
 }
 
 .ft-color-gray80{
@@ -6732,6 +6733,9 @@ padding-bottom:10px;
 .ml-60 {
   margin-left: 60px;
 }
+.ml-120 {
+  margin-left: 120px;
+}
 .noborder {
   border: none !important;
 }
@@ -6753,6 +6757,7 @@ padding-bottom:10px;
     padding: 10px;
 }
 
+
 .dropdown-item.active, .dropdown-item:active {
   color: #808080 !important;
   background-color: #f8f9fa;
@@ -6767,4 +6772,21 @@ padding-bottom:10px;
   color: #808080;
   box-shadow: none;
   background-color: transparent !important;
+}
+
+.swal2-title {
+  font-weight: 100 !important;
+}
+.border-gray {
+  border: 1px solid #C5C7D0;
+}
+.pl-28 {
+  padding-left: 28px;
+}
+.pl-44 {
+  padding-left: 44px;
+}
+.add-user {
+  padding: 5px;
+  padding-bottom: 7px;
 }
