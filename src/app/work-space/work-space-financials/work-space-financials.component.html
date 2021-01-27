@@ -1,18 +1,15 @@
-<main>
-    <div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 30px;">
-        <div class="tab-header">
-            <div class="tab-heading">Estimation</div>
-        </div>
-        <div class="container">
+<main class="ml-120">
+    <div class="container-fluid">
+        <div class="page-heading">Estimation</div>
             <div class="payment-container p-0 m-0 bg-none border-none">
                 <div class="row mt-5">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="radio">
                             <input (click)="radioClick('Upload')" type="radio" id="tab1" name="optionsRadios">
                             <label for="tab1">Upload my estimation document</label>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="radio">
                             <input (click)="radioClick('HiveZen')" type="radio" id="tab2" name="optionsRadios" checked>
                             <label for="tab2">Use the HiveZen Estimation</label>
@@ -26,14 +23,14 @@
 
             <div class="mb-5">
                 <div class="estimate-table" *ngIf="!isUploadFlag">
-                    <table id="example1" class="table mt-2 ">
+                    <table id="example" class="table mt-2 ">
                         <thead>
                             <tr>
                                 
-                                <th width="600">Phase</th>
-                                <th>Man Month</th>
-                                <th>Cost(USD)</th>
-                                <th></th>
+                                <th width="76%">Phase</th>
+                                <th width="10%">Man Month</th>
+                                <th width="10%">Cost(USD)</th>
+                                <th width="4%"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,9 +65,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row d-flex mt-3" *ngIf="!isUploadFlag">
-                    <a style="cursor: pointer;" (click)="addEstimation()"><i class="fa fa-plus plus-icon"></i></a>
-                    <input type="text" class="add-row pl-2" placeholder="add another row">
+                <div class="row mt-3" *ngIf="!isUploadFlag">
+                    <div class="col-sm-12">
+                    <a style="cursor: pointer;" (click)="addEstimation()"><img src="assets/images/add-large.png"></a>
+                    <input type="text" class="txt-outline txt-transparent ml-10 w-95 p-all-10" placeholder="Add another row">
+                </div>
                 </div>
                     <div class="row" *ngIf="isUploadFlag">
                         <div class="col-sm-3 mb-5 mt-5">
@@ -117,5 +116,4 @@
             </div>
             
         </div>
-    </div>
 </main>
