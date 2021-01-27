@@ -1,10 +1,9 @@
 <app-work-space-sub-nav></app-work-space-sub-nav>
-<main>
+<main class="ml-120">
   <div class="tab-container" style="border-radius: 0px !important;">
     <div class="tab">
-      <div class="tab-heading"><table><tr><td style="width: 25%; border-radius:5px;color: #fff; background: #6d366d;width: 22px;padding: 5px;">{{wsPocName.charAt(0).toUpperCase()}}</td><td style="width: 75%; white-space:nowrap"><span>{{wsPocName}}</span></td><td><img
-        src="assets/images/back-icon.png"></td></tr></table></div>
-      
+      <div class="tab-heading"><div class="menu-item bg-pink">{{wsPocName.charAt(0).toUpperCase()}}</div><span>{{wsPocName}}</span><img
+        src="assets/images/back-icon.png"></div>
       <div  class="input-group mb-4" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
         <ng-container *ngIf="ShowPhase(workSpaceBoardName.customBoardName)">
         <div    class="input-group-prepend">

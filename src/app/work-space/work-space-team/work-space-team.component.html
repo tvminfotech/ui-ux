@@ -1,18 +1,16 @@
-<main>	
-	<div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 30px;">
-		<div class="tab-header">
-			<div class="tab-heading">Manage Team</div>
-		</div>
+<main class="ml-120">	
+	<div class="container-fluid">
 		<div class="row" *ngIf="commonService.getRole() =='idea-owner'">
-			<div class="col-sm-12">
-				<button (click)="addResource()" style="margin:10px" class="btn btn-outline-purple">Add Internal Resource</button>
-				
+			<div class="col-sm-9">
+				<div class="page-heading">Manage Team</div>
+			</div>
+			<div class="col-sm-3 align-right">
+				<button (click)="addResource()" class="btn btn-outline-purple mt-20">Add Internal Resource</button>
 			</div>
 		</div>
-		<hr>
 
-		<div  style="margin-right: 30px;" >
-		<table id="example" class="table">
+		<div>
+		<table id="example" class="table mt-50">
 			<thead>
 				<tr>
 					<th *ngIf="commonService.getRole() =='idea-owner'"></th>
@@ -72,3 +70,8 @@
 
 	  </div>
 </main>
+<footer>
+    <div class="container-fluid">
+        <div class="footer">©HiveZen.All rights reserved</div>
+    </div>
+</footer>

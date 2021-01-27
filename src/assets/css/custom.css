@@ -5867,7 +5867,7 @@ div#vmap {
   font-size: 14px;
   font-weight: 100;
   color: #333333;
-  padding: 0.45rem;
+  padding: 10px 0;
 }
 #example.table tbody tr {
   background-color: #ffffff;
@@ -6789,4 +6789,14 @@ padding-bottom:10px;
 .add-user {
   padding: 5px;
   padding-bottom: 7px;
+}
+
+.align-right {
+  text-align: right;
+}
+#example.table tbody tr td:first-child {
+  padding-left: 20px;
+}
+.table thead th:first-child {
+  padding-left: 20px;
 }
