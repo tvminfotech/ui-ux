@@ -2,11 +2,11 @@
 <main class="ml-120">
   <div class="tab-container" style="border-radius: 0px !important;">
     <div class="tab">
-      <div class="tab-heading"><div class="menu-item bg-pink">{{wsPocName.charAt(0).toUpperCase()}}</div><span>{{wsPocName}}</span><img
-        src="assets/images/back-icon.png"></div>
+      <div class="tab-heading"><div class="menu-item bg-pink float-left">{{wsPocName.charAt(0).toUpperCase()}}</div><div class="menu-user-name">{{wsPocName}}</div><img
+       class="menu-toggle-icon" src="assets/images/back-icon.png"></div>
       <div  class="input-group mb-4" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
         <ng-container *ngIf="ShowPhase(workSpaceBoardName.customBoardName)">
-        <div    class="input-group-prepend">
+        <div class="input-group-prepend">
           <!--
           <a style="border-radius: 50%;background-color: #7c4791;margin-left: 10px;width: 20px;"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i style="margin-left: 8px;margin-right: 10px;color: #fff;" class="fa fa-ellipsis-v" aria-hidden="true"></i>
