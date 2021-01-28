@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div id="Tab3" class="tabcontent">
   <div class="tab-header">
     <div class="tab-heading">Wireframe</div>
@@ -35,7 +36,7 @@
     </div>
       <div class="clear-float"></div>
       <div *ngIf="commonService.getRole() =='idea-owner'" class="review-container">
-        <div class="heading wireframe_css wireframe_pt0_css">Request Review</div>
+        <div class="ft-16 pb-10 wireframe_css wireframe_pt0_css">Request Review</div>
         <div class="row">
           <div class="col-sm-3 pr-0">
             <div class="form-group">
@@ -68,7 +69,7 @@
           </div>
         </div>
         <div class="row pl-3 pt-3">
-          <div class="heading wireframe_pt1_css wireframe_pt_20">Existing Reviewer</div>
+          <div class="ft-16 pb-10 wireframe_pt1_css wireframe_pt_20">Existing Reviewer</div>
         </div>
         <div class="row" *ngIf="existingReviewer.length ==0">
           <div class="col-sm-12">
@@ -88,8 +89,8 @@
           </div>
         </div>
       </div>
-      <div  [ngClass]="{'wireframe_pt_20': commonService.getRole() !='idea-owner'}"  class="heading wireframe_css wireframe_pt1_css">Comments Received</div>
-      <table id="example" class="table">
+      <div  [ngClass]="{'wireframe_pt_20': commonService.getRole() !='idea-owner'}"  class="ft-16 pb-10 wireframe_css wireframe_pt1_css">Comments Received</div>
+      <table id="example" class="table table-custom">
         <thead>
           <tr>
             <th></th>
@@ -116,3 +117,4 @@
         </tbody>
       </table>
     </div>
+  </div>

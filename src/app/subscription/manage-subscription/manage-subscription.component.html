@@ -1,21 +1,22 @@
-<main>
-<div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 0px;">
-    <div class="tab-header">
-        <div class="tab-heading">Manage your Subscriptions</div>
-    </div>
-    <div class="container manage-ur-sub">   
-        <div class="row justify-content-between mr-4 ml-2 mt-5">
-            <h2 class="ft-16 ft-light-gray pb-3">Plan Details</h2>                
-        </div> 
+<main class="ml-60">
+<div class="container-fluid">
+        <div class="page-heading">Manage your Subscriptions</div>
+    <div class="manage-ur-sub mt-50">  
         <div class="row">
-            <div class="col-sm-8">
+             
+            <div class="col-sm-6">
+                <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="ft-16 ft-light-gray pb-10">Plan Details</h2>   
+                </div>  
+            </div>
                 <div class="plan-box">
                     <div class="row">
                         <div class="col-sm-9">
                             <p class="ft-12 ft-light-gray pb-2">Current Plan</p>
                             <h5 class="ft-18 ft-color-green">Basic</h5>
                         </div>
-                        <div class="col-sm-3 pr-4 bt-left">
+                        <div class="col-sm-3 pr-4 border-left">
                             <p>Seats</p>
                             <h5 class="ft-16 ft-bold pt-2">5</h5>
                         </div>
@@ -24,31 +25,38 @@
                         <div class="col-sm-9">
                             <p class="ft-12 ft-light-gray pb-2">You are on the basic plan with 5 seats. You can buy more seats at any point of time.</p>                              
                         </div>
-                        <div class="col-sm-3 pr-4">
-                           <button style="cursor: pointer;" routerLink="/subscription/purchase-subcription" class="p-3 buy-more-btn m-0 ft-color-green" >Buy more seats</button>
+                        <div class="col-sm-3 p-0">
+                           <button routerLink="/subscription/purchase-subcription" class="buy-more-btn m-0 ft-color-green" >Buy more<br>seats</button>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-between mr-4 ml-2 mt-4">
-                    <h2 class="ft-16 ft-light-gray pb-3">Current Users</h2>                
+                <div class="row mt-58">
+                    <div class="col-sm-12">
+                    <h2 class="ft-16 ft-light-gray pb-3">Current Users</h2>  
+                    </div>              
                 </div> 
-                <div class="current-user text-center">
-                <div class="col bt-right">
-                    <p class="ft-18">5 <span class="ft-14 ft-light-gray">Total Seats</span></p>
+                <div class="plan-box">
+                    <div class="row">
+                <div class="col-sm-4">
+                    <p class="ft-18 color-purple">5 <span class="ft-14 ft-light-gray">Total Seats</span></p>
                 </div>
-                <div class="col bt-right">
-                    <p class="ft-18">4 <span class="ft-14 ft-light-gray">Unassigned Seats</span></p>
+                <div class="col-sm-4 border-left">
+                    <p class="ft-18 color-purple">4 <span class="ft-14 ft-light-gray">Unassigned Seats</span></p>
                 </div>
-                <div class="col">
-                    <p class="ft-18">1 <span class="ft-14 ft-light-gray">Allocated Seats</span></p>
+                <div class="col-sm-4 border-left">
+                    <p class="ft-18 color-purple">1 <span class="ft-14 ft-light-gray">Allocated Seats</span></p>
                 </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="row justify-content-between mr-4 ml-2">
-                    <h2 class="ft-16 ft-light-gray pb-3">Need help?</h2>                
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-12">
+                    <h2 class="ft-16 ft-light-gray  pb-10">Need help?</h2>      
+                </div>          
                 </div> 
-                <div class="need-help-box">
+                <div class="plan-box">
                     <div class="row">
                         <div class="col-sm-4">
               <img src="assets/images/needhelp.PNG">                        
@@ -60,15 +68,15 @@
                     </div>
                 </div>
 
-                <div class="contact-box mt-4">
+                <div class="plan-box mt-20">
                     <div class="row">
                         <div class="col-sm-12 text-center mb-3">
                          <p class="ft-18"><strong>Contact Support</strong></p>
                          <p class="ft-12 pt-3 pb-3">Our Customer success team will get back to you within record time</p>
                          <div class="d-flex justify-content-center">
-                         <button class="contact-sup-btn">Contact Support</button>
+                         <button class="btn button-blue">Contact Support</button>
                         </div><br>
-                         <a href="" class="close-my-account ft-bold">Close my account</a>
+                         <a class="font-red ft-bold">Close my account</a>
                         </div>
                     </div>
                 </div>
@@ -121,6 +129,6 @@
             </tbody>
         </table>
     </div>
-</div>
-  </div>
+    </div>
+    </div>
 </main>

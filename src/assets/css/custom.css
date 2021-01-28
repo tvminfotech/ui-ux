@@ -5368,7 +5368,7 @@ div#vmap {
   line-height: 36px;
 }
 .color-purple {
-  color: #2a0b3a;
+  color: #7C4791;
 }
 .nav-item {
   line-height: 36px;
@@ -5406,8 +5406,9 @@ div#vmap {
 .tab {
   float: left;
   background-color: #f5f6f8;
-  width: 18%;
+  width: 20%;
   height: 100%;
+  padding: 0 10px;
 }
 /* Style the buttons inside the tab */
 .tab button {
@@ -5424,10 +5425,12 @@ div#vmap {
   font-size: 14px;
   line-height: 18px;
 }
-/* Change background color of buttons on hover */
+/* Change background color of buttons on hover 
 .tab button:hover {
   color: #ea5fc4;
 }
+
+*/
 /* Create an active/current "tab button" class */
 .tab button.active {
   color: #ea5fc4;
@@ -5436,7 +5439,7 @@ div#vmap {
 .tabcontent {
   float: left;
   padding: 30px 0 0 30px;
-  width: 82%;
+  width: 80%;
   height: 100%;
   border-radius: 20px 0 0 0;
   border-left: 1px solid #d0d2d7;
@@ -5445,14 +5448,14 @@ div#vmap {
 }
 .menu-user-name {
   float: left;
-  width: 60%;
+  width: 70%;
   overflow: hidden;
   line-height: 34px;
 }
 .menu-toggle-icon {
   /* margin-top: 5px; */
   position: relative;
-  right: -45px;
+  right: -32px;
   top: 5px;
 }
 
@@ -5469,7 +5472,7 @@ div#vmap {
   color: #000000;
   font-size: 16px;
   font-weight: bold;
-  margin: 20px;
+  margin: 20px 5px;
   line-height: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid #d0d2d7;
@@ -5986,6 +5989,12 @@ hr {
   border: 1px solid #7C4791;
   color: #ffffff;
 }
+
+.button-blue {
+  background-color: #0085ff;
+  border: 1px solid #0085ff;
+  color: #ffffff;
+}
 .button-no-bg {
   background-color: transparent;
   border: 1px solid transparent;
@@ -6219,7 +6228,7 @@ hr {
   margin-right: 5px;
 }
 .mt-10 {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 .ml-10 {
   margin-left: 10px;
@@ -6806,10 +6815,10 @@ padding-bottom:10px;
   text-align: right;
 }
 #example.table tbody tr td:first-child {
-  padding-left: 20px;
+  padding-left: 20px !important;
 }
 .table thead th:first-child {
-  padding-left: 20px;
+  padding-left: 20px !important;
 }
 .mr-10 {
   margin-right: 10px;
@@ -6835,4 +6844,48 @@ input[type=checkbox], input[type=radio] {
 }
 .p-all-10 {
   padding: 10px;
+}
+.tab-menu-item {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.tab-menu-item:hover {
+  background-color: #ffffff;
+}
+.w-85 {
+  width: 85%;
+}
+.ptb-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.mt-0 {
+  margin-top: 0 !important;
+}
+.plan-box {
+  background-color: #ffffff;
+  padding: 25px;
+  border: 1px solid #C9C9C9;
+  border-radius: 10px;
+
+}
+.border-left {
+  border-left: 1px solid #707070;
+}
+.buy-more-btn {
+  background-color: #01C875;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.font-red {
+  color: #e86778 !important;
+}
+.mt-58 {
+  margin-top: 58px;
+}
+.table-custom.table th, .table-custom.table td {
+  padding: 5px 0 !important;
+  vertical-align: middle;
 }

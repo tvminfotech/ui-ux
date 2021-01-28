@@ -1,11 +1,15 @@
 <app-work-space-sub-nav></app-work-space-sub-nav>
 <main class="ml-120">
-  <div class="tab-container" style="border-radius: 0px !important;">
+  <div class="tab-container">
     <div class="tab">
       <div class="tab-heading"><div class="menu-item bg-pink float-left">{{wsPocName.charAt(0).toUpperCase()}}</div><div class="menu-user-name">{{wsPocName}}</div><img
        class="menu-toggle-icon" src="assets/images/back-icon.png"></div>
-      <div  class="input-group mb-4" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
+      <div  class="input-group tab-menu-item" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
         <ng-container *ngIf="ShowPhase(workSpaceBoardName.customBoardName)">
+          <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.customBoardName)" class="w-85">
+            <button class="tablinks" style="padding-left: 10px;padding-top: 2px;padding-bottom: 0px;padding-right: 0px;">
+            <div><img src="assets/images/Initial-Requirement.png"> {{workSpaceBoardName.customBoardName}}</div>
+          </button></a>
         <div class="input-group-prepend">
           <!--
           <a style="border-radius: 50%;background-color: #7c4791;margin-left: 10px;width: 20px;"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -13,21 +17,33 @@
             <img src="assets/images/down-arrow-green.png">
           </a>
           -->
-          <a style="margin-left: 10px;"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="assets/images/down-arrow-purple.png">
+          <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="assets/images/drop-down.png">
           </a>
-          <div class="dropdown-menu p-3 custom-dropdown-menu" >
-            <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              Rename</a>
-           <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
-           <a class="dropdown-item pl-1 pb-1" href="#"><i class="fa fa-archive" aria-hidden="true"></i>
-             Close</a>
-          </div>
+         
+          <div aria-labelledby="userDropdown" class="dropdown-menu toggle-menu shadow animated--grow-in mt-10">
+            <a class="dropdown-item ptb-5"><img src="assets/images/collapse.svg">Collapse this Group</a>
+            <a class="dropdown-item ptb-5"><img src="assets/images/collapse.svg">Collapse all Group</a>
+            <a class="dropdown-item ptb-5"><img src="assets/images/select.svg">Select All Items</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item ptb-5"><img src="assets/images/add.svg">Add Group</a>
+            <a class="dropdown-item ptb-5"><img src="assets/images/duplicate.svg">Duplicate this Group</a>
+            <a class="dropdown-item ptb-5"><img src="assets/images/move.svg">Move Group to Board</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item ptb-5"><img src="assets/images/edit.svg">Rename Group</a>
+            <a class="dropdown-item ptb-5"><img src="assets/images/theme.svg">Change Group Color</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"><img src="assets/images/excel.svg">Export to Excel</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item ptb-5"><img src="assets/images/trash.svg">Delete</a>
+            <a class="dropdown-item ptb-5"><img src="assets/images/archive.svg">Archive</a>
         </div>
-        <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.customBoardName)">
-          <button class="tablinks" style="padding-left: 10px;padding-top: 2px;padding-bottom: 0px;padding-right: 0px;">
-          <div>{{workSpaceBoardName.customBoardName}}</div>
-        </button></a>
+
+
+
+
+        </div>
+       
         <!--
         <div class="dropdown" style="margin-left: 10px;">
           {{workSpaceBoardName.customBoardName}} 
