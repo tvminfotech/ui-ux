@@ -51,18 +51,17 @@ export class SignUpSetUpAccountComponent implements OnInit {
       return;
     }
     var reqdata = this.config.data;
-    reqdata["firstName"]=this.signupForm.get("firstName").value;
-    reqdata["langKey"]="en";
-    reqdata["userType"]="Idea Owner";
+    reqdata["fullName"]=this.signupForm.get("firstName").value;
+    // reqdata["email"]="en";
+    reqdata["userTypeCdoe"]="Idea Owner";
     reqdata["password"]=this.signupForm.get("password").value;
     reqdata["micrositeName"]=this.signupForm.get("micrositeName").value;
     this.service.signUp(reqdata)
     .pipe(first())
     .subscribe(
         data => {
-            if (data.result_status === 'SUCCESS') {
-                console.log(data,">>>>>>>>>>>>>data")
-                //this.successMessage(data['result_msg']);
+            if (data.result_status.toUpperCase() === 'SUCCESS') {
+                //this.commonService.successMessage(data['result_msg']);
                 this.Success();
                 return;
             }
@@ -81,6 +80,7 @@ export class SignUpSetUpAccountComponent implements OnInit {
   {
     this.Close();
     var objPubSub = {};
+    objPubSub["micrositeName"]=this.signupForm.get("micrositeName").value;
     this.signupDialogPtr = this.dialogService.open(SignUpInviteTeamComponent, {
       showHeader:false,
       closable:false,
