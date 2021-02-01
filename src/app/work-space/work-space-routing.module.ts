@@ -47,6 +47,7 @@ const routes: Routes = [
     children: [
       { path: ':subNav/:wsPocName', component: WorkSpaceSubMenuComponent,
       children: [
+        { path: 'edit-workspace', component: EditWorkSpaceComponent},
         { path: 'summary', component: WorkSpaceSummaryComponent},
         { path: 'team', component: WorkSpaceTeamComponent},
         { path: 'documents', component: WorkSpaceDocumentsComponent},

@@ -18,7 +18,7 @@ export class LoginService {
   }
 
   getWorkSpaceboards(header: any) {
-    return this.http.get<any>(`${environment.apiUrl}workspace-boards`, header)
+    return this.http.get<any>(`${environment.apiUrl}microsite/workspace/phases`, header)
       .pipe(map(data => { return data; }),
         // catchError(this.handleError)
       );

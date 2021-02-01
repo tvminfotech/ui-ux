@@ -90,10 +90,10 @@ export class CreateWorkSpaceComponent implements OnInit {
     }
     
     const reqdata = {
-      "pocName": formData.pocName,
-      "pocDesc": formData.pocDesc,
+      "wsName": formData.pocName,
+      "wsDesc": formData.pocDesc,
       "micrositeId":localStorage.getItem('micrositeId'),
-      "pocBoardsList":this.pocBoardsList
+      "phaseList":this.pocBoardsList
     };
     
   console.log(reqdata);

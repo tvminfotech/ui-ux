@@ -13,7 +13,7 @@ export class WorkSpaceListService {
     this.ngxService.start();  
   }
   getWorkSpaceList(header: any) {       
-    return this.http.get<any>(`${environment.apiUrl}workspaces?micrositeId`+'='+localStorage.getItem('micrositeId'), header)
+    return this.http.get<any>(`${environment.apiUrl}microsite/workspaces?micrositeId`+'='+localStorage.getItem('micrositeId'), header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data; })
