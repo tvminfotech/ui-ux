@@ -47,12 +47,23 @@ export class WorkSpaceSubNavComponent implements OnInit {
         .pipe(first())
         .subscribe(
           (data: any) => {
-            //console.log(data.result_data['defaultBoard'],'defaultBoard')
+            var defaultBoard =null;
+            if (data.result_data != null && data.result_data.phaseList !=null && data.result_data.phaseList !=undefined)
+            defaultBoard = data.result_data.phaseList[0];
+            if ( data.result_data !=null && defaultBoard !=null && defaultBoard !=undefined)
+            { 
+              this.commonService.setRole(data.result_data.userRoleToWorkspace);
+              this.boardName =defaultBoard.custPhaseName;
+              this.boardId  =defaultBoard.id;
+            }
+
+            /*
             if (data.result_data !=null &&  data.result_data['defaultBoard'] !=null && data.result_data['defaultBoard'] !=undefined)
             {
             this.boardName =data.result_data['defaultBoard'].name;
             this.boardId  =data.result_data['defaultBoard'].id;
             }
+            */
           },
           error => {
           });

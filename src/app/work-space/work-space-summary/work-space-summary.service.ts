@@ -9,16 +9,36 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 
 export class WorkSpaceSummaryService {
-  token = localStorage.getItem('tempCurrentUserToken');
-  header = {
-    headers: new HttpHeaders()
-      .set('Authorization', `Bearer ${this.token}`)
-  };
+   // token = localStorage.getItem('tempCurrentUserToken');
+  // header = {
+  //   headers: new HttpHeaders()
+  //     .set('Authorization', `Bearer ${this.token}`)
+  // };
   constructor(private http: HttpClient, private ngxService: NgxUiLoaderService) { }
 
-  getPOCDtl(id: any) {
+  getTeamDtl(id: any, header) {
     this.ngxService.start();
-    return this.http.get<any>(`${environment.apiUrl}workspace/?micrositeId=${id.micrositeId}&pocId=${id.pocId}`, this.header)
+    return this.http.get<any>(`${environment.apiUrl}workspace/team/users?micrositeId=${id.micrositeId}&workspaceId=${id.workspaceId}`, header)
+      .pipe(map(data => {
+        this.ngxService.stop();
+        return data;
+      }),
+      );
+  }
+  
+
+  getPOCDtl(id: any, header: any) {
+    this.ngxService.start();
+    return this.http.get<any>(`${environment.apiUrl}microsite/workspace/?micrositeId=${id.micrositeId}&workspaceId=${id.pocId}`, header)
+      .pipe(map(data => {
+        this.ngxService.stop();
+        return data;
+      }),
+      );
+  }
+  getDashboard(id: any, header: any) {
+    this.ngxService.start();
+    return this.http.get<any>(`${environment.apiUrl}workspace/summary/review/counts?micrositeId=${id.micrositeId}&workspaceId=${id.workspaceId}`, header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data;

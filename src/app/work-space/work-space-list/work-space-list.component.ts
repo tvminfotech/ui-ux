@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { WorkSpaceListService } from './work-space-list.service';
@@ -14,7 +14,7 @@ import { CommonService } from '../../utils/common.service';
 export class WorkSpaceListComponent implements OnInit {
 
   constructor(private route: Router, private Service: WorkSpaceListService, private actRoute: ActivatedRoute,
-    private environmentService: EnvironmentService, private commonService: CommonService) { }
+    private environmentService: EnvironmentService, private commonService: CommonService,private cdr: ChangeDetectorRef) { }
   workSpacelist = [];
   wsPocId: any;
   isCreateWorkSpace: any;
@@ -33,9 +33,12 @@ export class WorkSpaceListComponent implements OnInit {
         .subscribe(
           (data: any) => {
             this.workSpacelist = data.result_data;
+            if (this.workSpacelist == null) {
+              this.workSpacelist=[];
+            }
             if (localStorage.getItem("alreadyLogin") == null) {
               localStorage.setItem("alreadyLogin", "Yes");
-              if (this.workSpacelist.length == 0) {
+              if (this.workSpacelist.length == 0 ) {
                 if (this.commonService.getRole() == 'idea-owner') {
                   this.createWorkspace();
                 }
@@ -44,7 +47,7 @@ export class WorkSpaceListComponent implements OnInit {
               }
               else {
                 var POCobj =this.workSpacelist[0];
-               this.view(POCobj.id,POCobj.pocName);
+               this.view(POCobj.id,POCobj.wsName);
               }
             }
             /*
@@ -66,6 +69,12 @@ export class WorkSpaceListComponent implements OnInit {
   view(workspaceId, workspaceName) {
     this.environmentService.setWSSubMenu('null');
     this.environmentService.setPOCId(workspaceId);
+
+    this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+    this.route.onSameUrlNavigation = 'reload';
+
     this.route.navigateByUrl('/workspace/view/' + workspaceId + '/' + workspaceName + '/summary');
   }
   createWorkspace() {
@@ -79,5 +88,6 @@ export class WorkSpaceListComponent implements OnInit {
       this.isCreateWorkSpace = 'create';
       this.environmentService.setPOCId('null');
     }
+    this.cdr.detectChanges();
   }
 }
