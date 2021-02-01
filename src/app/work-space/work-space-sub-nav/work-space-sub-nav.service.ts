@@ -14,7 +14,7 @@ export class WorkSpaceSubNavService {
    }
    getDefaultWorkspacePhase(header: any,wsPocId:any)
   {
-    return this.http.get<any>(`${environment.apiUrl}workspace?micrositeId`+'='+localStorage.getItem('micrositeId') +'&pocId='+ wsPocId, header)
+    return this.http.get<any>(`${environment.apiUrl}microsite/workspace?micrositeId`+'='+localStorage.getItem('micrositeId') +'&workspaceId='+ wsPocId, header)
     .pipe(map(data => {
       this.ngxService.stop();
       return data; })

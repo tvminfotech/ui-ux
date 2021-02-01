@@ -14,7 +14,7 @@ export class SignUpSetUpAccountService {
    }
    signUp(value: any) {
     this.ngxService.start(); 
-    return this.http.post<any>(`${environment.apiUrl}register`, value)
+    return this.http.post<any>(`${environment.apiUrl}register/ideaowner`, value)
       .pipe(map(data => { 
         this.ngxService.stop();
         return data; }),

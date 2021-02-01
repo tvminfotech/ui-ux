@@ -39,11 +39,24 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+
+                    if (  data['result_status'].toUpperCase() === 'SUCCESS')
+                     {
+                    if (data['result_data'].userTypeCdoe == 'Idea Owner')
+                    {
+                        this.commonService.setIdeaOwner();
+                    }                         
+
                     localStorage.setItem('tempCurrentUser', JSON.stringify(data['result_data']));
-                    localStorage.setItem('micrositeId',data['result_data'].micrositeDto.id);
+                    localStorage.setItem('micrositeId',data['result_data'].micrositeId);
                     this.getWorkSpace(localStorage.getItem("tempCurrentUserToken"));
                     // data.result_data
                     return;
+                    }
+                    else{
+                        this.commonService.failureMessage(data['result_msg']);
+                        return;
+                    }
                 },
                 error => {
                 });
@@ -59,7 +72,7 @@ export class LoginComponent implements OnInit {
         else {
             const formData = this.loginForm.getRawValue();
             const reqdata = {
-                "emailId": formData.emailId,
+                "username": formData.emailId,
                 "password": formData.password,
                 "rememberMe": true
             }
@@ -67,7 +80,7 @@ export class LoginComponent implements OnInit {
                 .pipe(first())
                 .subscribe(
                     data => {
-                        if (data.result_status === 'SUCCESS') {
+                        if (  data.result_status.toUpperCase() === 'SUCCESS') {
                             localStorage.setItem('tempCurrentUserToken', data.result_data.id_token);
                             this.getLoginDetails(data.result_data.id_token);
                             //this.getWorkSpace(data.result_data.id_token);
@@ -75,7 +88,7 @@ export class LoginComponent implements OnInit {
                         }
                         else
                         {
-                            this.commonService.failureMessage("Incorrect email or password");
+                            this.commonService.failureMessage(data.result_msg);
                         }
                     },
                     error => {

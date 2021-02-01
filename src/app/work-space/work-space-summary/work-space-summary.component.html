@@ -4,27 +4,27 @@
                 <div class="poc-box">
                     <div class="row">
                         <div class="col">
-                            <label class="ft-18">POC Name</label>
-                            <p class="ft-color-gray80">{{POCDetails.pocName}}</p>
+                            <label class="ft-18">WorkSpace Name</label>
+                            <p class="ft-color-gray80">{{POCDetails && POCDetails.wsName}}</p>
                         </div>
                         <div class="col">
                             <label class="ft-18 ">Date Created</label>
-                            <p class="ft-color-gray80">{{POCDetails.createdTime}}</p>
+                            <p class="ft-color-gray80">{{commonService.convertDateTimeFormat(POCDetails.createdDate, 'true')}}</p>
                         </div>
                         <div class="col">
                             <label class="ft-18">Status</label>
-                            <p class="ft-color-gray80">{{POCDetails.statusName}}</p>
+                            <p class="ft-color-gray80">{{POCDetails && POCDetails.statusCode}}</p>
                         </div>
                         <div class="col-sm-4">
                       
                         <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3" (click)="onClosePOC()">Close POC</button>
+                                <button class="btn button-save ml-3" (click)="onClosePOC()">Close WorkSpace</button>
                             </div>
                         </div>
                         <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3" (click)="onManagePOC()">Manage POC Workspace</button>
+                                <button class="btn button-save ml-3" (click)="onManagePOC()">Manage Workspace</button>
 
                             </div>
                         </div>
@@ -36,59 +36,37 @@
                     <div class="col-sm-9 mt-5">
                         <div class="row">
                             <div class="col-sm-4">
-                                <label class="ft-18">Team Members</label><a href=""><img src="assets/images/add-purple.png" class="add-user"></a>
+                              <label class="ft-18">Team Members</label>
                             </div>
                             <div class="col-sm-4">
-                                <label class="ft-18 ">Role</label>
+                              <label class="ft-18 ">Role</label>
                             </div>
-                            <div class="col-sm-4">
-                                <label class="ft-18">Last Login</label>
+                            <div class="col-sm-4 ">
+                              <label class="ft-18">Last Login</label>
                             </div>
-
-                        </div>
-
-                        <div class="bg-white mr-5 border-gray mt-2">
-                            <div class="row pt-2 pb-2">
+              
+                          </div>
+                        <div *ngFor="let item of teamDtl">
+                            <div class="bg-white mr-5 border-gray mt-2">
+                              <div class="row pt-2 pb-2">
+              
                                 <div class="col-sm-4 align-content-center">
-                                    <div class="profile-default">B</div><span class="profile-name">Benjamin</span>
+                                  <div class="profile-default">{{item.userName.charAt(0).toUpperCase()}}</div>
+                                  <span class="profile-name">{{item.userName}}</span>
                                 </div>
-                                <div class="col-sm-4 pt-2 pl-28">
-                                    <span>Database Manager</span>
+                                <div class="col-sm-4 pt-2" style="padding-left: 2rem;">
+                                  <span>{{item.roleCode}}</span>
                                 </div>
-                                <div class="col-sm-4 pt-2 pl-44">
-                                    <span>04/13/2020 17:15 PM</span>
+                                <div class="col-sm-4 pt-2" style="padding-left: 3rem;">
+                                  <span>{{commonService.convertDateTimeFormat(item.createdDate, 'false')}}</span>
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                          </div>
+
+                      
                         
-                        <div class="bg-white mr-5 border-gray mt-2">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-sm-4 align-content-center">
-                                    <div class="profile-default">AW</div><span class="profile-name">Arya Winterfell</span>
-                                </div>
-                                <div class="col-sm-4 pt-2 pl-28">
-                                    <span>Manager</span>
-                                </div>
-                                <div class="col-sm-4 pt-2 pl-44">
-                                    <span>04/13/2020 17:15 PM</span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="bg-white mr-5 border-gray mt-2">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-sm-4 align-content-center">
-                                    <div class="profile-default">L</div><span class="profile-name">Lawrence</span>
-                                </div>
-                                <div class="col-sm-4 pt-2 pl-28">
-                                    <span>Database Manager</span>
-                                </div>
-                                <div class="col-sm-4 pt-2 pl-44">
-                                    <span>04/13/2020 17:15 PM</span>
-                                </div>
-
-                            </div>
-                        </div>
+                     
                       
                         
                         
@@ -112,16 +90,16 @@
                         </div>
                         <div class="row mb-5">
                             <div class="col-sm-3 text-center">
-                                <label class="ft-14">7</label>
+                                <label class="ft-14">{{totalCount}}</label>
                             </div>
                             <div class="col-sm-3 text-center">
-                                <label class="ft-14 ">3</label>
+                                <label class="ft-14 ">{{openCount}}</label>
                             </div>
                             <div class="col-sm-3 text-center">
-                                <label class="ft-14">John</label>
+                                <label class="ft-14">{{topReviewerName}}</label>
                             </div>
                             <div class="col-sm-3 text-center">
-                                <label class="ft-14">Wireframe</label>
+                                <label class="ft-14">{{mostReviewedPhase}}</label>
                             </div>
 
                         </div>

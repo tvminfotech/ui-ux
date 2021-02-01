@@ -15,7 +15,7 @@ export class CreateWorkSpaceService {
 
   getWorkSpaceboards(header: any) {    
     this.ngxService.start(); 
-    return this.http.get<any>(`${environment.apiUrl}workspace-boards`, header)
+    return this.http.get<any>(`${environment.apiUrl}microsite/workspace/phases`, header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data; }),
@@ -24,7 +24,7 @@ export class CreateWorkSpaceService {
   }
   createWorkspace(value: any,header: any) {
     this.ngxService.start(); 
-    return this.http.post<any>(`${environment.apiUrl}workspace`, value,header)
+    return this.http.post<any>(`${environment.apiUrl}microsite/workspace`, value,header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data; }),
@@ -32,3 +32,4 @@ export class CreateWorkSpaceService {
       );
   }
 }
+

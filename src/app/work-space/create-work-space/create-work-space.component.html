@@ -7,54 +7,33 @@
             <div class="col-sm-1">
                 <div class="txt-lable">POC Name</div>
             </div>
-            <div class="col-sm-3"><input type="text" formControlName="pocName" class="form-control bg-white" id="POCName" placeholder="POC Name"
-                [ngClass]="{ 'is-invalid': submitted && f1.pocName.errors }"
+            <div class="col-sm-3"><input type="text" formControlName="wsName" class="form-control bg-white" id="wsName" placeholder="POC Name"
+                [ngClass]="{ 'is-invalid': submitted && f1.wsName.errors }"
                 >
-                <div *ngIf="submitted && f1.pocName.errors" class="invalid-feedback">
-                    <div *ngIf="f1.pocName.errors.required">POC Name is required</div>
+                <div *ngIf="submitted && f1.wsName.errors" class="invalid-feedback">
+                    <div *ngIf="f1.wsName.errors.required">POC Name is required</div>
                   </div>
             </div>
             <div class="col-sm-1">
                 <div class="txt-lable">Description</div>
             </div>
-            <div class="col-sm-3"><textarea type="text" formControlName="pocDesc" class="form-control bg-white" id="description"
+            <div class="col-sm-3"><textarea type="text" formControlName="wsDesc" class="form-control bg-white" id="description"
                     placeholder="Description"
-                    [ngClass]="{ 'is-invalid': submitted && f1.pocDesc.errors }"
+                    [ngClass]="{ 'is-invalid': submitted && f1.wsDesc.errors }"
                     ></textarea>
-                    <div *ngIf="submitted && f1.pocDesc.errors" class="invalid-feedback">
-                        <div *ngIf="f1.pocDesc.errors.required">POC Description is required</div>
+                    <div *ngIf="submitted && f1.wsDesc.errors" class="invalid-feedback">
+                        <div *ngIf="f1.wsDesc.errors.required">POC Description is required</div>
                       </div>
                 </div>
         </div>
 
 
         <div div class="collapse-container" *ngIf="getWorkSpaceBoardAvailablity('Initial Requirement')">
-            <div data-target="#InitialRequirment" class="w100">
+            <div data-toggle="collapse" data-target="#InitialRequirment" class="w100">
                 <div class="row">
                     <div class="col-sm-9">
-                            <div _ngcontent-vwq-c52="" class="nav-item dropdown no-arrow">
-                                <a _ngcontent-vwq-c52="" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle toggle-icon">
-                                    <img src="assets/images/down-arrow-purple.png">
-                                </a> 
-                                <span class="collapse-heading txt-purple toggle-heading">Initial Requirement</span>
-                                <div aria-labelledby="userDropdown" class="dropdown-menu toggle-menu shadow animated--grow-in">
-                                    <a class="dropdown-item"><img src="assets/images/collapse.svg">Collapse this Group</a>
-                                    <a class="dropdown-item"><img src="assets/images/collapse.svg">Collapse all Group</a>
-                                    <a class="dropdown-item"><img src="assets/images/select.svg">Select All Items</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"><img src="assets/images/add.svg">Add Group</a>
-                                    <a class="dropdown-item"><img src="assets/images/duplicate.svg">Duplicate this Group</a>
-                                    <a class="dropdown-item"><img src="assets/images/move.svg">Move Group to Board</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"><img src="assets/images/edit.svg">Rename Group</a>
-                                    <a class="dropdown-item"><img src="assets/images/theme.svg">Change Group Color</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"><img src="assets/images/excel.svg">Export to Excel</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"><img src="assets/images/trash.svg">Delete</a>
-                                    <a class="dropdown-item"><img src="assets/images/archive.svg">Archive</a>
-                                </div>
-                            </div>
+                        <img src="assets/images/down-arrow-purple.png"><span class="collapse-heading txt-purple">Initial
+                            Requirement</span>
                     </div>
                     <div class="col-sm-1">
                         <div class="collapse-status">Status</div>
@@ -64,12 +43,12 @@
                     </div>
                 </div>
             </div>
-            <div id="InitialRequirment">
+            <div id="InitialRequirment" class="collapse show">
                 <div class="collapse-head">
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="desc bl-5-purple">
-                                <input type="text" formControlName="initialRequirement" class="form-control bg-white noborder" placeholder="Desc"
+                                <input type="text" formControlName="initialRequirement" class="form-control bg-white" placeholder="Desc"
                                 [ngClass]="{ 'is-invalid': submitted && f1.initialRequirement.errors }"
                                 >
                                 <div *ngIf="!submitted && f1.initialRequirement.errors" class="invalid-feedback">

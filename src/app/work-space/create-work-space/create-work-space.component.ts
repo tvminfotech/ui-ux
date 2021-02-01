@@ -28,8 +28,8 @@ export class CreateWorkSpaceComponent implements OnInit {
   initForm()
   {    
     this.formGroup = this.formBuilder.group({
-      pocName: ['', Validators.required],
-      pocDesc: ['', Validators.required],
+      wsName: ['', Validators.required],
+      wsDesc: ['', Validators.required],
       initialRequirement:['IR_V1'],
       processFlow:['PF_V1'],
       applicationFlow:['AF_V1'],
@@ -90,10 +90,10 @@ export class CreateWorkSpaceComponent implements OnInit {
     }
     
     const reqdata = {
-      "pocName": formData.pocName,
-      "pocDesc": formData.pocDesc,
+      "wsName": formData.wsName,
+      "wsDesc": formData.wsDesc,
       "micrositeId":localStorage.getItem('micrositeId'),
-      "pocBoardsList":this.pocBoardsList
+      "phaseList":this.pocBoardsList
     };
     
   console.log(reqdata);
@@ -106,15 +106,18 @@ export class CreateWorkSpaceComponent implements OnInit {
   .pipe(first())
   .subscribe(
       data => {
-          if (data['result_status'] === 'SUCCESS') {
+          if (data['result_status'].toUpperCase() === 'SUCCESS') {
             this.commonService.successMessage(data['result_msg']);          
             var wsPocId= data['result_data'].id; 
-            var pocName= data['result_data'].pocName;
+            var wsName= data['result_data'].wsName;
             //localStorage.setItem('workspaceCreate','list');
             //localStorage.setItem('SubMenuVar','summary');
             this.environmentService.setPOCId(wsPocId);
-            this.route.navigateByUrl('/workspace/view/' + wsPocId +'/' + pocName + '/summary');
+            this.route.navigateByUrl('/workspace/view/' + wsPocId +'/' + wsName + '/summary');
             return;
+          }
+          else{
+            this.commonService.failureMessage(data['result_msg']);
           }
       },
       error => {
@@ -182,19 +185,20 @@ export class CreateWorkSpaceComponent implements OnInit {
   }
   getWorkSpaceBoardExists(boardName) {
     return this.workspaceBoardsData.some(function(el) {
-      return el.boardName == boardName;
+      return el.name == boardName;
     }); 
   }
   getWorkSpaceBoardObj(boardName,desc) {
     const outputObj ={};
     this.workspaceBoardsData.some(function(el) {
-      if (el.boardName == boardName)
+      if (el.name == boardName)
       {
-        outputObj["boardId"]=el.id;
-        outputObj["customBoardName"]=boardName;
-        outputObj["description"]=desc;
+        outputObj["phaseId"]=el.id;
+        outputObj["custPhaseName"]=boardName;
+        //outputObj["custPhaseName"]=desc;
       }
     }); 
     return outputObj;
   }
 }
+

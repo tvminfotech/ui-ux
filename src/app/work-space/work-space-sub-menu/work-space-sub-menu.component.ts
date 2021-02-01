@@ -47,17 +47,29 @@ export class WorkSpaceSubMenuComponent implements OnInit {
         .pipe(first())
         .subscribe(
           (data: any) => {
-            
+            var defaultBoard =null;
+            if (data.result_data != null && data.result_data.phaseList !=null && data.result_data.phaseList !=undefined)
+            defaultBoard = data.result_data.phaseList[0];
+            //console.log(defaultBoard,">>>>>>>>>>>>>>>defaultBoard")
+            if ( data.result_data !=null && defaultBoard !=null && defaultBoard !=undefined)
+            { 
+              this.commonService.setRole(data.result_data.userRoleToWorkspace);
+              this.boardName =defaultBoard.custPhaseName;
+              this.boardId  =defaultBoard.id;
+            }
+            /*
             if ( data.result_data !=null && data.result_data['defaultBoard'] !=null && data.result_data['defaultBoard'] !=undefined)
-            {
+            {            
             this.boardName =data.result_data['defaultBoard'].name;
             this.boardId  =data.result_data['defaultBoard'].id;
             }
+            */
           },
           error => {
           });
   }
   menuClick(SubMenu) {
+   
     // localStorage.setItem('SubMenuVar', this.SubMenuVar);
     this.SubMenuVar = SubMenu;
     var pocId= this.actRoute.snapshot.params.subNav;
@@ -69,7 +81,6 @@ export class WorkSpaceSubMenuComponent implements OnInit {
     this.boardName =(Object.values(defaultBoardsObj));
     this.boardId  =(Object.keys(defaultBoardsObj));
     */
-    
     if (this.workSpaceBoardRouterLink[this.boardName] != undefined)
     if (SubMenu == 'phase')
     {
