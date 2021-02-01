@@ -6452,8 +6452,8 @@ input[type=checkbox], input[type=radio] {
 }
 
 .payment-cont{
-    background: #f9fafb;
-border: 1px solid #707070;
+background: #ffffff;
+border: 1px solid #d9d9d9;
 border-radius: 4px;
 }
 
@@ -6888,4 +6888,49 @@ input[type=checkbox], input[type=radio] {
 .table-custom.table th, .table-custom.table td {
   padding: 5px 0 !important;
   vertical-align: middle;
+}
+.margin-auto {
+  margin: auto;
+}
+.float-left  {
+  float: left;
+}
+.purchase-menu {
+  line-height: 14px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.btn-outline{
+  border: 1px solid #C9C9C9;
+}
+.purchase-menu .btn-outline {
+  margin: 0 5px !important;
+}
+
+.payment-container {
+  background-color: #ffffff;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  padding: 40px;
+  
+}
+.pay-txt {
+  font-size: 14px;
+  color: #ABABAB;
+}
+
+.bl-gray {
+  border-left: 1px solid #f1f1f1;
+}
+.payment-2col {
+  width: 50%; float: left;
+}
+.bb-gray{
+  border-bottom: 1px solid #f1f1f1;
+}
+.aligh-right {
+  text-align: right;
+}
+.width-50 {
+  width: 50%;
 }

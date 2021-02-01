@@ -1,79 +1,82 @@
-<main>
-    <div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 0px;">
-		<div class="tab-header">
-			<div class="header-box justify-content-center">
-				<div class="tab-heading">Make a Payment</div>
-			</div>
-		
-			<div class="payment-container mt-5">
-                <div class="row">
-                    <div class="col-sm-7 bt-right pr-5">
-                        <div class="pay-txt">
-                            <p class="col-sm-6">PAYMENT AMOUNT</p>
-                            <p>PLAN</p>
-                        </div>
-                        <div class="pay-txt bt-bottom pb-3">
-                            <input type="text" class="form-control" id="acname" placeholder="$20">
-                            <input type="text" class="form-control" id="acname" placeholder="E3">
-                        </div>
-                        <div class="pay-txt pt-4 pb-4">
-                            <p class="col-sm-6">Select payment method</p>
-                        </div>
-                        <div class="payment-cc">
-                           
-                            <div class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                <label for="optionsRadios1">Credit/debit card
-                                </label>
+<main class="ml-60">
+    <div class="container-fluid">
+                <div class="page-heading text-center">Make a Payment</div>
+                <div class="row mt-50">
+                    <div class="col-sm-8 payment-container margin-auto">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="bb-gray mr-4">
+                                    <div class="payment-2col">
+                                            <p class="pay-txt">PAYMENT AMOUNT</p>
+                                            <div class="ft-28">$20</div>
+                                    </div>
+                                    <div class="payment-2col">
+                                            <p class="pay-txt">PLAN</p>
+                                            <div class="ft-28">E3</div>
+                                    </div>
+                                    <div class="clear-float"></div>
+                                </div>
+                                <div class="pay-txt pt-4 pb-4">
+                                    <p>Select payment method</p>
+                                </div>
+                                <div class="payment-cc">
+                                   
+                                    <div class="radio width-50">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <label for="optionsRadios1">Credit/debit card
+                                        </label>
+                                    </div>
+                                    <div class="width-50 align-right mr-3">
+                                        <img src="assets/images/paypal.png">
+                                    </div>
+                                </div>
+        
+                                <div class="payment-cc mt-3">
+                                   
+                                    <div class="radio width-50">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        <label for="optionsRadios1">Credit/debit card
+                                        </label>
+                                    </div>
+                                    <div class="width-50 align-right mr-3">
+                                        <img src="assets/images/credit-card.png">
+                                    </div>
+                                </div>
                             </div>
-                            <img src="assets/images/paypal.png" height="50">
-                        </div>
-
-                        <div class="payment-cc mt-3">
-                           
-                            <div class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                <label for="optionsRadios1">Credit/debit card
-                                </label>
+                            <div class="col-sm-5 pl-5 bl-gray">
+                                <div class="payment-details">
+                                    <p>Enter your card details</p>
+                                </div>
+                                <div class="payment-cont mt-5">
+                                    <label >Card holder name</label>
+                                    <input type="text" class="form-control" id="acname" placeholder="Card holder name">
+                                </div>
+                                <div class="payment-cont mt-3">
+                                    <label >Card Number</label>
+                                    <input type="text" class="form-control" id="acname" placeholder="**** **** **** 1234">
+                                </div>
+                                <div class="payment-cont mt-3">
+                                    <div class="co-sm-3 payment-2col">
+                                        <label >Expiry</label>   
+                                        <input type="text" class="form-control" id="acname" placeholder="MM/YY">
+                                    </div>
+                                    <div class="co-sm-3 payment-2col">
+                                        <label>CVV</label> 
+                                        <input type="text" class="form-control" id="acname" placeholder="123">
+                                    </div>
+                                    <div class="clear-float"></div>
+                                                               
+                                </div>
+                               
+                          
                             </div>
-                            <img src="assets/images/amazon-c.png" height="50">
-                            <img src="assets/images/master-c.png" height="50">
-                            <img src="assets/images/american.png" height="50">
-						</div>
-						<div class="payment-cc1 mt-2 ">                           
-                            
-                            <img src="assets/images/discovry.png" height="50">
-                            <img src="assets/images/visa.png" height="50" class="ml-2">
-                           
                         </div>
-                       
                     </div>
-                    <div class="col-sm-5 pl-5">
-                        <div class="payment-details">
-                            <p>Enter your card details</p>
-                        </div>
-                        <div class="payment-cont mt-5">
-                            <label >Card holder name</label>
-                            <input type="text" class="form-control" id="acname" placeholder="Card holder name">
-                        </div>
-                        <div class="payment-cont mt-3">
-                            <label >Card Number</label>
-                            <input type="text" class="form-control" id="acname" placeholder="**** **** **** 1234">
-                        </div>
-                        <div class="payment-cont mt-3">
-                            <label >Expiry</label>   <label class="pl-5" >CVV</label>
-                            <input type="text" class="form-control" id="acname" placeholder="MM/YY">                            
-                        </div>
-                       
-                  
-                    </div>
+                    
                 </div>
-			</div>
-			<div class="payment-btn mt-3 justify-content-center mt-3">
+			<div class="payment-btn mt-3 text-center mt-3">
 				<button class="btn btn-primary">Back</button>        
 				<button class="btn btn-primary ml-3" data-toggle="modal" data-target="#myModal">Pay</button>         
 			</div>
-					
-		</div>
 	  </div>
 </main>

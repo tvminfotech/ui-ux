@@ -1,19 +1,15 @@
-<main>
-    <div id="Tab3" class="tabcontent1" style="padding: 30px 0px 0px 0px;">
-        <div class="tab-header">
-            <div class="header-box justify-content-center">
-                <div class="tab-heading">Purchase Subscriptions</div>
-
-            </div>
-        </div>
+<main class="ml-60">
+    <div class="container-fluid">
+                <div class="page-heading text-center">Purchase Subscriptions</div>
         <div class="row mt-5">
-            <div class="seat-box">
-                <p class="width-50 ml-1 mr-2 ft-12">3 Seats minimum</p>
+            <div class="row margin-auto">
+                <div class="col-sm-12">
+                    <div class="float-left purchase-menu">3 Seats<br>minimum</div>
                 <button (click)="selectedSeats(seatlist,seatlist.seats,i)" 
-                *ngFor="let seatlist of seatLists;let i = index;" class="btn button-save mr-2"
+                *ngFor="let seatlist of seatLists;let i = index;" class="btn button-save btn-outline"
                 [ngClass]="{'button-save': i === selectedSeatsIndex}">
                     {{seatlist['seats']}} seats</button>
-                
+                </div>
                 <!--
                 <button class="btn button-save mr-2">5 seats</button>
                 <button class="btn btn-outline mr-2">10 seats</button>
@@ -25,7 +21,7 @@
                 <button class="btn btn-outline mr-2">50 seats</button>
                 <button class="btn btn-outline mr-2">100 seats</button>
                 -->
-            </div>
+        </div>
         </div>
         <div class="row purchase-subscription">
             <div class="col-sm-3 position-relative">
@@ -127,6 +123,6 @@
                     support. Kindly add in the cost and effort for the same"</span></p>
             <p class="ft-14 ft-light-gray">A <span class="pl-4">"Quote doesn't seem to include the post implementatino
                     support. Kindly add in the cost and effort for the same"</span></p>
-        </div><br><br>
-    </div>
-</main>>
+        </div>
+</div>
+</main>
