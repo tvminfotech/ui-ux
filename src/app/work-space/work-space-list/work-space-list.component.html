@@ -1,14 +1,18 @@
 <nav class="main-menu">
     <ul>
         <li *ngIf="commonService.getRole() =='idea-owner'" >
-            <a  (click)="createWorkspace()"  style="cursor: pointer;" [class.active]="isCreateWorkSpace == 'create'"> 
+            <a  (click)="createWorkspace()" [class.active]="isCreateWorkSpace == 'create'"> 
                 <img src="assets/images/menu-icons/main-menu1.png">
             </a>
         </li>
-        <div *ngFor="let workSpace of workSpacelist;">
+        <div *ngFor="let workSpace of workSpacelist;index as i">
             <li>
-                <a (click)="view(workSpace.id,workSpace.pocName)" [class.active]="environmentService.getPOCId()== workSpace.id "  style="cursor: pointer;">
-                    <div class="menu-item bg-pink" [title]="workSpace.pocName">W</div>
+                
+                <a (click)="view(workSpace.id,workSpace.wsName)" [class.active]="environmentService.getPOCId()== workSpace.id ">
+             
+                    <div   class="menu-item" [ngClass]="colorObj[i%4]"  [title]="workSpace.wsName">
+                        {{workSpace.wsName.charAt(0).toUpperCase()}} 
+                    </div>
                 </a>
             </li>
             </div>
@@ -44,6 +48,6 @@
             </a>
         </li>
     </ul>
-    <div class="upgrade-account"><img src="assets/images/upgrade-account.png"></div>
+    <div class="upgrade-account"><img (click)="upgrade()" src="assets/images/upgrade-account.png"></div>
 
 </nav>

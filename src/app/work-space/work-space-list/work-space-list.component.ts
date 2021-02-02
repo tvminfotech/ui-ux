@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { WorkSpaceListService } from './work-space-list.service';
@@ -18,6 +18,7 @@ export class WorkSpaceListComponent implements OnInit {
   workSpacelist = [];
   wsPocId: any;
   isCreateWorkSpace: any;
+  colorObj=["bg-pink","bg-blue","bg-teal","bg-green"];
   ngOnInit(): void {
 
     this.getWorkSpaceList(localStorage.getItem('tempCurrentUserToken'));
@@ -89,5 +90,10 @@ export class WorkSpaceListComponent implements OnInit {
       this.environmentService.setPOCId('null');
     }
     this.cdr.detectChanges();
+  }
+  upgrade()
+  {
+    this.environmentService.setPOCId('null');
+    this.route.navigateByUrl('/subscription/manage-subscription');
   }
 }
