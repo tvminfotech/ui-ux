@@ -6934,3 +6934,48 @@ input[type=checkbox], input[type=radio] {
 .width-50 {
   width: 50%;
 }
+.plan-basic {
+  background-color: #01C875;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.plan-standard {
+  background-color: #16ACFF;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.plan-pro {
+  background-color: #E2445B;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.purchase-container {
+  background-color: #ffffff;
+  margin-top: 20px;
+  border: 1px solid #CDCDCD;
+  border-radius: 3px;
+  padding: 20px;
+}
+.price-container {
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+}
+.b-all-green {
+  border: 1px solid #01C875;
+}
+.b-all-blue {
+  border: 1px solid #16ACFF;
+}
+.b-all-red {
+  border: 1px solid #E2445B;
+}
