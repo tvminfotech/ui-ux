@@ -6,7 +6,6 @@ import swal from 'sweetalert2';
 })
 export class CommonService {
 
- 
   constructor() { }
   successMessage(msg) {
     swal.fire({

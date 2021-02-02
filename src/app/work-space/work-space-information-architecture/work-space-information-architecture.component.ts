@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { WorkSpaceInformationArchitectureService } from './work-space-information-architecture.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { HttpParams } from '@angular/common/http';
+import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 // tslint:disable-next-line:import-spacing
@@ -21,6 +21,7 @@ declare var jQuery:any;
 export class WorkSpaceInformationArchitectureComponent implements OnInit {
   uploadDialogPtr: DynamicDialogRef;
   editCommentsDialogPtr: DynamicDialogRef;
+  header:any;
   roles = [];
   reviewers = [];
   selectedRole: any;
@@ -65,11 +66,11 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
     this.pageIconCount = 1;
 
     const id = {
-      'micrositeId': this.workspace.micrositeId,
+      'micrositeId': this.micrositeId,
       'pocId': this.wsPocId,
       'pocBoardMapId': this.boardId //process flow board id
     }
-    this.workspace.getAllUploadedFile(id)
+    this.workspace.getAllUploadedFile(id,this.header)
       .pipe(first())
       .subscribe(
         (data: any) => {
@@ -137,9 +138,8 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
   }
 
   getImageUrl(item,allFilesObj,allFiles) {
-    var micrositeId =localStorage.getItem("micrositeId");
-    let param = new HttpParams().set("docDto", `{"docName": "${item.docName}","micrositeId": ${micrositeId},"pocId":${this.wsPocId},"pocBoardMapId":${this.boardId},"id":${item.docId}}`);
-     this.workspace.onDownloadFile(param)
+    let param = new HttpParams().set("docDto", `{"docName": "${item.docName}","micrositeId": ${this.micrositeId},"workspaceId":${this.wsPocId},"workspaceDtlId":${this.boardId},"id":${item.id}}`);
+     this.workspace.onDownloadFile(param,this.header)
        .pipe(first())
        .subscribe(
          (data: any) => {    
@@ -158,14 +158,21 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
      }
   initForm() {
     this.formGroup = this.formBuilder.group({
-      uploadFile: ['', Validators.required],
-      documentDescription: ['', Validators.required]
+      uploadFile: [''],
+      documentDescription: [''],
+      reviewComment: ['', Validators.required]
     });
   }
 
   get f1() { return this.formGroup.controls; }
 
   getParams() {
+    const token = localStorage.getItem('tempCurrentUserToken');
+    this.header = {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+    };
+    this.micrositeId =localStorage.getItem('micrositeId');
     this.actRoute.parent.paramMap
       .subscribe(params => {
         this.boardId = params['params'].boardId;
@@ -176,9 +183,13 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
   ngOnInit(): void {
     this.getParams();
     this.initForm();
-    this.getAllUploadedFile();
     this.selectedReviewer = [];
-    this.proto() ;
+    this.allFiles = [];
+    this.getAllUploadedFile();    
+    this.getReviewerCombo();
+    this.getAllReviewComments();
+    this.getAssignedReviewer();
+    //this.proto() ;
   }
   ClickCarousolLeftSlider()
   {
@@ -209,7 +220,7 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
   upload()
     {
       var objPubSub = {
-        "micrositeId":this.workspace.micrositeId,
+        "micrositeId":this.micrositeId,
         "pocId":this.wsPocId,
         "pocBoardMapId":this.boardId        
       };
@@ -228,10 +239,12 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
     }
     
   proto() {
+    /*
     this.reviewers = [
       { "id": 3, "name": "Reviewer 3" },
       { "id": 4, "name": "Reviewer 4" },
     ]
+    */
     this.existingReviewer=[
       { "id": 1, "name": "Reviewer 1" },
       { "id": 2, "name": "Reviewer 2" },
@@ -270,6 +283,8 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
   }
   editComments(item)
   {
+    item["wsPocId"]=this.wsPocId;
+	  item["boardId"]=this.boardId;
     this.editCommentsDialogPtr = this.dialogService.open(EditCommentsReceivedComponent, {
       //header: 'Setup your account',
       showHeader: false,
@@ -278,5 +293,130 @@ export class WorkSpaceInformationArchitectureComponent implements OnInit {
       data: item,
       contentStyle: { "max-height": "30%", "overflow": "auto", "padding": "0 1.1rem 0rem 1.5rem", "border-radius": "10px" },
     });
+    this.editCommentsDialogPtr.onClose.subscribe((data) => {
+      this.getAllReviewComments();
+    });
+  }
+  getReviewerCombo()
+  {
+    const req_data = {
+      'micrositeId': this.micrositeId,
+      'workspaceId': this.wsPocId
+    }
+    this.workspace.getReviewerCombo(req_data,this.header)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if ( data.result_data !=null && data.result_data.length) {     
+            this.reviewers= data.result_data;
+            return;
+          }
+        },
+        error => {
+        });
+  }
+  saveComments()
+  {
+    const formData = this.formGroup.getRawValue();
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.formGroup.invalid) {
+     return;
+    }
+    const reqdata = {
+      "reviewComment": formData.reviewComment,
+      //"docName": formData.docName,
+      "micrositeId": parseInt(this.micrositeId),
+      "workspaceId": parseInt(this.wsPocId), 
+      "workspaceDtlId": parseInt(this.boardId)
+    }
+    this.workspace.saveComments(reqdata,this.header)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if (data.result_status.toUpperCase() === 'SUCCESS') {
+            this.commonService.successMessage(data.result_msg);
+			this.getAllReviewComments();
+          }
+          else
+          {
+            this.commonService.failureMessage(data.result_msg);
+          }
+        },
+        error => {
+        });
+
+  }
+  getAllReviewComments()
+  {
+    const reqdata = {
+      "micrositeId": parseInt(this.micrositeId),
+      "workspaceId": parseInt(this.wsPocId), 
+      "workspaceDtlId": parseInt(this.boardId)
+    }
+    this.workspace.getAllReviewComments(reqdata, this.header)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if (data.result_status.toUpperCase() == "SUCCESS") {
+            this.commentsReceived = data.result_data;
+            return;
+          }
+        },
+        error => {
+        });
+  }
+  submitReviewer()
+  {
+    var selectedReviewer=[];
+    this.selectedReviewer.forEach(element => {
+      var selectedReviewerobj={};
+      selectedReviewerobj["id"]=element.userId;
+      selectedReviewerobj["name"]=element.userName;
+      selectedReviewer.push(selectedReviewerobj);
+    });
+    const reqdata = {
+      "reviewerIds": selectedReviewer,
+      //"docName": formData.docName,
+      "micrositeId": parseInt(this.micrositeId),
+      "workspaceId": parseInt(this.wsPocId), 
+      "workspaceDtlId": parseInt(this.boardId)
+    }
+    console.log(reqdata,">>>>>>>>>>>reqdata")
+    this.workspace.submitReviewer(reqdata,this.header)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if (data.result_status.toUpperCase() === 'SUCCESS') {
+            this.commonService.successMessage(data.result_msg);
+            this.selectedReviewer=[];
+			      this.getAssignedReviewer();
+          }
+          else
+          {
+            this.commonService.failureMessage(data.result_msg);
+          }
+        },
+        error => {
+        });
+  }
+  getAssignedReviewer()
+  {
+    const reqdata = {
+      "micrositeId": parseInt(this.micrositeId),
+      "workspaceId": parseInt(this.wsPocId), 
+      "workspaceDtlId": parseInt(this.boardId)
+    }
+    this.workspace.getAssignedReviewer(reqdata, this.header)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if (data.result_status.toUpperCase() == "SUCCESS" && data.result_data !=null) {
+            this.existingReviewer = data.result_data;
+            return;
+          }
+        },
+        error => {
+        });
   }
 }

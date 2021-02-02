@@ -20,6 +20,7 @@ export class WorkSpaceInitialRequirementComponent implements OnInit {
   initialRequirementId:any=null;
   boardMapId: any;
   PocId: any;
+  micrositeId:any;
   constructor(private formBuilder: FormBuilder,
     private wpirService: WorkSpaceInitialRequirementService,
     private commonService: CommonService,
@@ -44,7 +45,7 @@ export class WorkSpaceInitialRequirementComponent implements OnInit {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
     };
-    this.wpirService.initInitialRequirement(this.PocId,this.boardMapId,header).then(
+    this.wpirService.initInitialRequirement(this.micrositeId,this.PocId,this.boardMapId,header).then(
       data => {
         var repsonse_data= data['result_data'];
         if (repsonse_data != null)
@@ -72,8 +73,8 @@ export class WorkSpaceInitialRequirementComponent implements OnInit {
       this.isEditButton=true;
       reqdata = {
         "micrositeId":localStorage.getItem('micrositeId'),
-        "pocId": this.PocId,
-        "pocBoardMapId": this.boardMapId,      
+        "workspaceId": this.PocId,
+        "workspaceDtlId": this.boardMapId,      
         "problemStatement":formData.problemStatement,
         "proposedSolution":formData.proposedSolution,
         "valueCreation":formData.valueCreation,
@@ -84,8 +85,8 @@ export class WorkSpaceInitialRequirementComponent implements OnInit {
     {
     reqdata = {
       "micrositeId":localStorage.getItem('micrositeId'),
-      "pocId": this.PocId,
-      "pocBoardMapId": this.boardMapId,      
+      "workspaceId": this.PocId,
+      "workspaceDtlId": this.boardMapId,      
       "problemStatement":formData.problemStatement,
       "proposedSolution":formData.proposedSolution,
       "valueCreation":formData.valueCreation
@@ -101,7 +102,7 @@ export class WorkSpaceInitialRequirementComponent implements OnInit {
     this.wpirService.formDataSave(reqdata, header, this.isEditButton).pipe(first())
       .subscribe(
         (data: any) => {
-          if (data['result_status'] == "SUCCESS") {
+          if (data['result_status'].toUpperCase() == "SUCCESS") {
             this.submitted = false;
             //this.formGroup.reset();
             this.commonService.successMessage(data['result_msg']);
@@ -114,6 +115,7 @@ export class WorkSpaceInitialRequirementComponent implements OnInit {
   }
   get f1() { return this.formGroup.controls; }
   getParams() {
+    this.micrositeId =localStorage.getItem('micrositeId');
     this.actRoute.parent.paramMap
       .subscribe(params => {
         this.boardMapId = params['params'].boardId;

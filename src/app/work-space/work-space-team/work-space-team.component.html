@@ -1,38 +1,40 @@
-<main class="ml-120">	
-	<div class="container-fluid">
-		<div class="row" *ngIf="commonService.getRole() =='idea-owner'">
-			<div class="col-sm-9">
-				<div class="page-heading">Manage Team</div>
-			</div>
-			<div class="col-sm-3 align-right">
-				<button (click)="addResource()" class="btn btn-outline-purple mt-20">Add Internal Resource</button>
-			</div>
-		</div>
+<main class="ml-120">
+  <div class="container-fluid">
+    <div class="row" *ngIf="commonService.getRole() =='idea-owner'">
+      <div class="col-sm-9">
+        <div class="page-heading">Manage Team</div>
+      </div>
+      <div class="col-sm-3 align-right">
+        <button (click)="addResource()" class="btn btn-outline-purple mt-20">Add Internal Resource</button>
+      </div>
+    </div>
 
-		<div>
-		<table id="example" class="table mt-50">
-			<thead>
-				<tr>
-					<th *ngIf="commonService.getRole() =='idea-owner'"></th>
-					<th>Resource</th>
-					<th>Email</th>
-					<th>Type</th>
-					<th>Role</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let teamListObj of teamList">
-				<td *ngIf="commonService.getRole() =='idea-owner'" style="width: 20px;"><a (click)="editTeam(teamListObj)" style="cursor: pointer;">
-				<i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
-				<td>{{teamListObj.Resource}}</td>
-				<td>{{teamListObj.Email}}</td>
-				<td ><span>{{teamListObj.Type}}</span></td>
-				<td>{{teamListObj.Role}}</td>
-				<td class="badge-status" [ngClass]="{'badge-done': teamListObj.Status === 'Active'}"><span>{{teamListObj.Status}}</span></td>
+    <div>
+      <table id="example" class="table mt-50">
+        <thead>
+          <tr>
+            <th *ngIf="commonService.getRole() =='idea-owner'"></th>
+            <th>Resource</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teamListObj of teamList">
+            <!-- <td *ngIf="commonService.getRole() =='idea-owner'" style="width: 20px;"><a (click)="editTeam(teamListObj)"
+                style="cursor: pointer;">
+                <i class="fa fa-edit" style="font-size: 14px;"></i></a></td> -->
+				<td>{{teamListObj.userName}}</td>
+				<td>{{teamListObj.email}}</td>
+				<td><span>{{teamListObj.usertype}}</span></td>
+				<td>{{teamListObj.roleCode}}</td>
+            <!-- <td class="badge-status" [ngClass]="{'badge-done': teamListObj.Status === 'Active'}">
+              <span>{{teamListObj.Status}}</span></td> -->
 
-				</tr>
-				<!--
+          </tr>
+          <!--
 				<tr>
 
 					<td>James</td>
@@ -63,15 +65,17 @@
 					<td class="badge-status"><span>Inactive</span></td>
 				</tr>
 				-->
-			</tbody>
-		</table>
-	
-	</div>
+        </tbody>
+      </table>
 
+    </div>
+	<div *ngIf="!teamList.length" style="margin-right: 30px;">
+		<img src="assets/images/noData.png">
 	  </div>
+  </div>
 </main>
 <footer>
-    <div class="container-fluid">
-        <div class="footer">©HiveZen.All rights reserved</div>
-    </div>
+  <div class="container-fluid">
+    <div class="footer">©HiveZen.All rights reserved</div>
+  </div>
 </footer>

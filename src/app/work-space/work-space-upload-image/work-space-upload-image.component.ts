@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DynamicDialogRef ,DynamicDialogConfig} from 'primeng/dynamicdialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {WorkSpaceUploadImageService} from './work-space-upload-image.service';
@@ -21,13 +21,15 @@ export class WorkSpaceUploadImageComponent implements OnInit {
   docName:any;
   constructor(public dialog: DynamicDialogRef,private formBuilder: FormBuilder,
     public config: DynamicDialogConfig,private service:WorkSpaceUploadImageService,
-    private commonService:CommonService) {
+    private commonService:CommonService,private cdf:ChangeDetectorRef) {
     
    }
 
   ngOnInit(): void {
     this.initForm();
+    setTimeout(() => {
     this.getDocuments();
+    });
   }
   initForm()
   {
@@ -74,11 +76,11 @@ export class WorkSpaceUploadImageComponent implements OnInit {
     const formData = this.formGroup.getRawValue();
     
     const reqdata = {
-      "docDesc": formData.docDesc,
+      "description": formData.docDesc,
       //"docName": formData.docName,
       "micrositeId": parseInt(data.micrositeId),
-      "pocId": parseInt(data.pocId), 
-      "pocBoardMapId": parseInt(data.pocBoardMapId)
+      "workspaceId": parseInt(data.pocId), 
+      "workspaceDtlId": parseInt(data.pocBoardMapId)
     }
     if (this.isEditFlag)
     {

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WorkSpaceModule } from './work-space/work-space.module';
@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './console/login/login.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AppConfigService } from './utils/app-config.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     FlashMessagesModule,
     NgxUiLoaderModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: AppLoader,
+      deps: [AppConfigService],
+      multi: true
+    },
+    AppConfigService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function AppLoader(_appConfig: AppConfigService) {
+  return () => _appConfig.getAppConfigs();
+}

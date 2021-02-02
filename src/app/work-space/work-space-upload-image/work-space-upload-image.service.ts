@@ -15,12 +15,12 @@ export class WorkSpaceUploadImageService {
   };
   constructor(private http: HttpClient,
     private ngxService: NgxUiLoaderService) {
-    this.ngxService.start();
+    
   }
   onUpload(value: any, isEdit: any) {
     this.ngxService.start();
     if (isEdit) {
-      return this.http.put<any>(`${environment.apiUrl}poc/doc/upload`, value, this.header)
+      return this.http.put<any>(`${environment.apiUrl}workspace/doc/upload`, value, this.header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data;
@@ -29,7 +29,7 @@ export class WorkSpaceUploadImageService {
     }
     else
     {
-    return this.http.post<any>(`${environment.apiUrl}poc/doc/upload`, value, this.header)
+    return this.http.post<any>(`${environment.apiUrl}workspace/doc/upload`, value, this.header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data;
@@ -38,7 +38,8 @@ export class WorkSpaceUploadImageService {
     }
   }
   getDocuments(id: any) {
-    return this.http.get<any>(`${environment.apiUrl}poc/doc/names?micrositeId=${id.micrositeId}&pocId=${id.pocId}&pocBoardMapId=${id.pocBoardMapId}`, this.header)
+    this.ngxService.start();
+    return this.http.get<any>(`${environment.apiUrl}workspace/doc/names?micrositeId=${id.micrositeId}&workspaceId=${id.pocId}&workspaceDtlId=${id.pocBoardMapId}`, this.header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data;

@@ -13,7 +13,7 @@ export class EditWorkSpaceService {
   }
   getWorkSpaceboards(header: any) {    
     this.ngxService.start(); 
-    return this.http.get<any>(`${environment.apiUrl}workspace-boards`, header)
+    return this.http.get<any>(`${environment.apiUrl}microsite/workspace/phases`, header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data; }),

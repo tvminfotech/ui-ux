@@ -12,12 +12,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Lorem adipiscing elit ...</td>
-                <td>Initial Requirement</td>
-                <td>Dec 25, 2020</td>
+            <tr *ngFor="let reviewerListDtl of reviewerList">
+                <td>{{reviewerListDtl.userName}}</td>
+                <td>{{reviewerListDtl.phaseCode}}</td>
+                <td>{{commonService.convertDateTimeFormat(reviewerListDtl.createdDate, 'true')}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Lorem ipsum dolor sit amet,</td>
                 <td>Process Flow</td>
                 <td>Nov 10, 2020</td>
@@ -31,7 +31,7 @@
                 <td>Lorem  adipiscing elit ...</td>
                 <td>Wireframe</td>
                 <td>Nov 01, 2020</td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
         <!--
@@ -43,11 +43,15 @@
         <div class="row">
             <div class="col-sm-3">
                 <div>Total Review Comments</div>
-                <div class="heading-lg pl-5 ml-4">7</div>
+                <div class="heading-lg pl-5 ml-4">{{totalCount}}</div>
             </div>
             <div class="col-sm-3">
                 <div>Open Comments</div>
-                <div class="heading-lg pl-5 ml-2">3</div>
+                <div class="heading-lg pl-5 ml-2">{{openCount}}</div>
+            </div>
+            <div class="col-sm-3">
+                <div>Closed Comments</div>
+                <div class="heading-lg pl-5 ml-2">{{closedCount}}</div>
             </div>
 
         </div>
@@ -69,18 +73,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let commentsReceiveddtl of commentsReceived">
-            <td><a (click)="editComments(commentsReceiveddtl)" style="cursor: pointer;"><i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
-            <td>{{commentsReceiveddtl.date}}</td>
-            <td>{{commentsReceiveddtl.phase}}</td>
-            <td><span class="badge-reviewer"><img src="assets/images/review.png"> {{commentsReceiveddtl.reviewer}}</span></td>
-            <td>{{commentsReceiveddtl.comments}}</td>
-            <td><span class="badge" [ngClass]="{'badge-accepted': commentsReceiveddtl.action === 'Accepted'}" >Accepted</span></td>
-            <td><span class="badge" [ngClass]="{'badge-rejected': commentsReceiveddtl.action === 'Rejected'}">Reject</span></td>
-            <td>{{commentsReceiveddtl.assignTo}}</td>
-            <td class="badge-status badge-working"><span>{{commentsReceiveddtl.status}}</span></td>
-          </tr>
-        </tbody>
+            <tr *ngFor="let commentsReceiveddtl of commentsReceived">
+              <td>
+                <a *ngIf="commentsReceiveddtl.commentStatus !='Closed' && ( commonService.getRole() =='idea-owner' ||   (commentsReceiveddtl.assignedToUserName !=null && commonService.getRole() =='developer' &&  commentsReceiveddtl.commentStatus =='Allocated' ) ||   (commentsReceiveddtl.assignedToUserName !=null && commonService.getRole() =='developer' &&  commentsReceiveddtl.commentStatus =='In-Progress' )  ||   (commentsReceiveddtl.assignedToUserName !=null && commonService.getRole() =='reviewer' &&  commentsReceiveddtl.commentStatus =='Completed' ) ) "  (click)="editComments(commentsReceiveddtl)" style="cursor: pointer;">
+                  <i class="fa fa-edit" style="font-size: 14px;"></i>
+                </a>
+              </td>
+              <td>{{commonService.convertDateTimeFormat(commentsReceiveddtl.enteredDate, 'true')}}</td>
+              <td>{{commentsReceiveddtl.phaseCode}}</td>
+              <td><span class="badge-reviewer"><img src="assets/images/review.png"> {{commentsReceiveddtl.enteredByName}}</span>
+              </td>
+              
+              <td>{{commentsReceiveddtl.reviewComment}}</td>
+              <td *ngIf="commonService.getRole() =='idea-owner'"><span class="badge" *ngIf="commentsReceiveddtl.actionStatus !='Pending'"
+                  [ngClass]="{'badge-accepted': commentsReceiveddtl.actionStatus == 'Accepted'}">Accepted</span></td>
+              <td *ngIf="commonService.getRole() =='idea-owner'"><span class="badge" *ngIf="commentsReceiveddtl.actionStatus !='Pending'" [ngClass]="{'badge-rejected action_status_rejected': commentsReceiveddtl.actionStatus == 'Rejected'}">Reject</span>
+              </td>
+              <td *ngIf="commonService.getRole() =='idea-owner'">{{commentsReceiveddtl.assignedToUserName}}</td>
+              <td class="badge-status"
+              [ngClass]="{'comment_status_allocated': commentsReceiveddtl.commentStatus == 'Allocated',
+                        'comment_status_inprogres': commentsReceiveddtl.commentStatus == 'In-Progress',
+                        'comment_status_completed': commentsReceiveddtl.commentStatus == 'Completed',
+                        'comment_status_closed': commentsReceiveddtl.commentStatus == 'Closed',
+                        'comment_status_pending': commentsReceiveddtl.commentStatus == 'Pending'}"
+              ><span>{{commentsReceiveddtl.commentStatus}}</span></td>
+            </tr>
+          </tbody>
       </table>
 
   </div>

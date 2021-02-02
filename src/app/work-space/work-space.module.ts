@@ -5,7 +5,7 @@ import { WorkSpaceRoutingModule } from './work-space-routing.module';
 import { WorkSpaceListComponent } from './work-space-list/work-space-list.component';
 import { WorkSpaceSubNavComponent } from './work-space-sub-nav/work-space-sub-nav.component';
 import { WorkSpacePhaseComponent } from './work-space-phase/work-space-phase.component';
-import {ConsoleModule} from 'src/app/console/console.module';
+import { ConsoleModule } from 'src/app/console/console.module';
 import { WorkSpaceLandingComponent } from './work-space-landing/work-space-landing.component';
 import { CreateWorkSpaceComponent } from './create-work-space/create-work-space.component';
 import { WorkSpaceSummaryComponent } from './work-space-summary/work-space-summary.component';
@@ -33,7 +33,33 @@ import { EditWorkSpaceComponent } from './edit-work-space/edit-work-space.compon
 import { WorkSpaceEditEstimationDetailsComponent } from './work-space-edit-estimation-details/work-space-edit-estimation-details.component';
 
 @NgModule({
-  declarations: [WorkSpaceListComponent, WorkSpaceSubNavComponent, WorkSpacePhaseComponent, WorkSpaceLandingComponent, CreateWorkSpaceComponent, WorkSpaceSummaryComponent, WorkSpaceInitialRequirementComponent, WorkSpaceProcessFlowComponent, WorkSpaceInformationArchitectureComponent, WorkSpaceWireframeComponent, WorkSpacePrototypeComponent, WorkSpacePocReviewComponent, WorkSpaceDevelopmentDocumentComponent, WorkSpaceSubMenuComponent, WorkSpaceTeamComponent, WorkSpaceDocumentsComponent, WorkSpaceMilestonesComponent, WorkSpaceFinancialsComponent,FileValidator, WorkSpaceUploadImageComponent, WorkSpacePublishPocComponent, AddInternalResourceComponent, WorkSpaceAddEstimationDetailsComponent, EditCommentsReceivedComponent, EditInternalResourceComponent, EditWorkSpaceComponent, WorkSpaceEditEstimationDetailsComponent],
+  declarations: [WorkSpaceListComponent,
+    WorkSpaceSubNavComponent,
+    WorkSpacePhaseComponent,
+    WorkSpaceLandingComponent,
+    CreateWorkSpaceComponent,
+    WorkSpaceSummaryComponent,
+    WorkSpaceInitialRequirementComponent,
+    WorkSpaceProcessFlowComponent,
+    WorkSpaceInformationArchitectureComponent,
+    WorkSpaceWireframeComponent,
+    WorkSpacePrototypeComponent,
+    WorkSpacePocReviewComponent,
+    WorkSpaceDevelopmentDocumentComponent,
+    WorkSpaceSubMenuComponent,
+    WorkSpaceTeamComponent,
+    WorkSpaceDocumentsComponent,
+    WorkSpaceMilestonesComponent,
+    WorkSpaceFinancialsComponent,
+    FileValidator,
+    WorkSpaceUploadImageComponent,
+    WorkSpacePublishPocComponent,
+    AddInternalResourceComponent,
+    WorkSpaceAddEstimationDetailsComponent,
+    EditCommentsReceivedComponent,
+    EditInternalResourceComponent,
+    EditWorkSpaceComponent,
+    WorkSpaceEditEstimationDetailsComponent],
   imports: [
     CommonModule,
     WorkSpaceRoutingModule,

@@ -27,8 +27,8 @@ export class EditWorkSpaceComponent implements OnInit {
   initForm()
   {    
     this.formGroup = this.formBuilder.group({
-      pocName: ['', Validators.required],
-      pocDesc: ['', Validators.required],
+      wsName: ['', Validators.required],
+      wsDesc: ['', Validators.required],
       initialRequirement:['IR_V1'],
       processFlow:['PF_V1'],
       applicationFlow:['AF_V1'],
@@ -103,17 +103,17 @@ export class EditWorkSpaceComponent implements OnInit {
   }
   getWorkSpaceBoardExists(boardName) {
     return this.workspaceBoardsData.some(function(el) {
-      return el.boardName == boardName;
+      return el.name == boardName;
     }); 
   }
   getWorkSpaceBoardObj(boardName,desc) {
     const outputObj ={};
     this.workspaceBoardsData.some(function(el) {
-      if (el.boardName == boardName)
+      if (el.name == boardName)
       {
-        outputObj["boardId"]=el.id;
-        outputObj["customBoardName"]=boardName;
-        outputObj["description"]=desc;
+        outputObj["phaseId"]=el.id;
+        outputObj["custPhaseName"]=boardName;
+        //outputObj["description"]=desc;
       }
     }); 
     return outputObj;
