@@ -13,6 +13,7 @@ import { CommonService } from '../../utils/common.service';
 export class WorkSpacePhaseComponent implements OnInit {
   wsPocName: any;
   wsPocId: any;
+  phaseId:any;
   workSpaceBoardNames = [];
   workSpaceBoardRouterLink =
     {
@@ -30,7 +31,7 @@ export class WorkSpacePhaseComponent implements OnInit {
   ngOnInit(): void {
     this.wsPocId = this.actRoute.snapshot.params.subNav;
     this.wsPocName = this.actRoute.snapshot.params.wsPocName;
-
+    this.phaseId= this.actRoute.snapshot.params.boardId;
     this.getWorkspacePhase(localStorage.getItem('tempCurrentUserToken'), this.wsPocId);
 
   }
@@ -43,13 +44,15 @@ export class WorkSpacePhaseComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data: any) => {
-          this.workSpaceBoardNames = data.result_data['pocBoardsList'];
+          this.commonService.setRole(data.result_data.userRoleToWorkspace)
+          this.workSpaceBoardNames = data.result_data['phaseList'];
         },
         error => {
         });
 
   }
   phaseClick(boardId, boardCode) {
+    this.phaseId =boardId;
     var subNav = this.actRoute.snapshot.params.subNav;
     var wsPocName = this.actRoute.snapshot.params.wsPocName;
     //localStorage.setItem('boardId',boardId);
@@ -72,9 +75,10 @@ export class WorkSpacePhaseComponent implements OnInit {
       }
       if (BoardName == 'Development Documents') {
         flag =true;
+        /*
         if (userRole == 'reviewer') {
           flag = false;
-        }
+        }*/
       }      
       if (BoardName == 'Publish POC') {
         flag = false;
