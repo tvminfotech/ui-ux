@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
                     if (  data['result_status'].toUpperCase() === 'SUCCESS')
                      {
-                    if (data['result_data'].userTypeCdoe == 'Idea Owner')
+                    if (data['result_data'] && data['result_data'].userTypeCdoe == 'Idea Owner')
                     {
                         this.commonService.setIdeaOwner();
                     }                         
