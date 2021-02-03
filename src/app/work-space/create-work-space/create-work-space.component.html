@@ -1,23 +1,29 @@
-<main class="ml-60">
+<main class="ml-80 mr-25">
     <div class="container-fluid">
-        <div class="page-heading">Welcome to your HiveZen account!</div>
+        <div class="page-heading mb-0">Welcome to your HiveZen account!</div>
         <div class="sub-heading">Let’s get you started with your first Workspace</div>
         <form [formGroup]="formGroup" class="form-horizontal">
         <div class="row pt-50">
-            <div class="col-sm-2">
-                <div class="txt-lable">Workspace Name</div>
-            </div>
-            <div class="col-sm-3"><input type="text" formControlName="wsName" class="form-control bg-white" id="wsName" placeholder="Workspace Name"
+            <div class="col-sm-4">
+                <div class="w-30 pull-left">
+                    <div class="txt-lable">Workspace Name</div>
+                </div>
+                
+                <div class="w-70 pull-left">
+                <input type="text" formControlName="wsName" class="form-control bg-white" id="wsName" placeholder="Workspace Name"
                 [ngClass]="{ 'is-invalid': submitted && f1.wsName.errors }"
                 >
                 <div *ngIf="submitted && f1.wsName.errors" class="invalid-feedback">
                     <div *ngIf="f1.wsName.errors.required">Workspace Name is required</div>
                   </div>
+                </div>
             </div>
-            <div class="col-sm-1">
-                <div class="txt-lable">Description</div>
-            </div>
-            <div class="col-sm-3"><textarea type="text" formControlName="wsDesc" class="form-control bg-white" id="description"
+            <div class="col-sm-4">
+                <div class="w-20 pull-left">
+                    <div class="txt-lable">Description</div>
+                </div>
+            <div class="w-80 pull-left">
+                <textarea type="text" formControlName="wsDesc" class="form-control bg-white" id="description"
                     placeholder="Description"
                     [ngClass]="{ 'is-invalid': submitted && f1.wsDesc.errors }"
                     ></textarea>
@@ -25,13 +31,15 @@
                         <div *ngIf="f1.wsDesc.errors.required">Workspace Description is required</div>
                       </div>
                 </div>
+                
+            </div>
         </div>
 
 
         <div div class="collapse-container" *ngIf="getWorkSpaceBoardAvailablity('Initial Requirement')">
             <div data-target="#InitialRequirment" class="w100">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                             <div _ngcontent-vwq-c52="" class="nav-item dropdown no-arrow">
                                 <a _ngcontent-vwq-c52="" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle toggle-icon">
                                     <img src="assets/images/down-arrow-purple.png">
@@ -56,7 +64,7 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-2">
                         <div class="collapse-status">Status</div>
                     </div>
                     <div class="col-sm-2">
@@ -67,7 +75,7 @@
             <div id="InitialRequirment">
                 <div class="collapse-head">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <div class="desc bl-5-purple">
                                 <input type="text" formControlName="initialRequirement" class="form-control bg-white noborder" placeholder="Desc"
                                 [ngClass]="{ 'is-invalid': submitted && f1.initialRequirement.errors }"
@@ -77,7 +85,7 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <div class="status">Active</div>
                         </div>
                         <div class="col-sm-2">
@@ -92,7 +100,7 @@
         <div div class="collapse-container" *ngIf="getWorkSpaceBoardAvailablity('Process Flow')">
             <div data-target="#ProcessFlow" class="w100">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <div _ngcontent-vwq-c52="" class="nav-item dropdown no-arrow">
                             <a _ngcontent-vwq-c52="" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle toggle-icon">
                                 <img src="assets/images/down-arrow-green.png">
@@ -117,7 +125,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="collapse-status">Status</div>
                 </div>
                 <div class="col-sm-2">
@@ -128,7 +136,7 @@
             <div id="ProcessFlow">
                 <div class="collapse-head">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <div class="desc bl-5-green">
                                 <input type="text" class="form-control bg-white noborder" placeholder="Desc"
                                 [ngClass]="{ 'is-invalid': submitted && f1.processFlow.errors }"
@@ -139,7 +147,7 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <div class="status">Active</div>
                         </div>
                         <div class="col-sm-2">
@@ -154,7 +162,7 @@
         <div div class="collapse-container" *ngIf="getWorkSpaceBoardAvailablity('Application Flow')">
             <div data-target="#ApplicationFlow" class="w100">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <div _ngcontent-vwq-c52="" class="nav-item dropdown no-arrow">
                             <a _ngcontent-vwq-c52="" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle toggle-icon">
                                 <img src="assets/images/down-arrow-red.png">
@@ -179,7 +187,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="collapse-status">Status</div>
                 </div>
                 <div class="col-sm-2">
@@ -190,7 +198,7 @@
             <div id="ApplicationFlow">
                 <div class="collapse-head">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <div class="desc bl-5-red">
                                 <input type="text" formControlName="applicationFlow" class="form-control bg-white noborder" placeholder="Desc"
                                 [ngClass]="{ 'is-invalid': submitted && f1.applicationFlow.errors }">
@@ -199,7 +207,7 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <div class="status">Active</div>
                         </div>
                         <div class="col-sm-2">
@@ -215,7 +223,7 @@
         <div div class="collapse-container" *ngIf="getWorkSpaceBoardAvailablity('Wireframe')">
             <div data-target="#Wireframe" class="w100">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <div _ngcontent-vwq-c52="" class="nav-item dropdown no-arrow">
                             <a _ngcontent-vwq-c52="" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle toggle-icon">
                                 <img src="assets/images/down-arrow-purple.png">
@@ -240,7 +248,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="collapse-status">Status</div>
                 </div>
                 <div class="col-sm-2">
@@ -251,7 +259,7 @@
             <div id="Wireframe">
                 <div class="collapse-head">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <div class="desc bl-5-purple">
                                 <input type="text" class="form-control bg-white noborder" placeholder="Desc"
                                 formControlName="wireframe" [ngClass]="{ 'is-invalid': submitted && f1.wireframe.errors }"
@@ -261,7 +269,7 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <div class="status">Active</div>
                         </div>
                         <div class="col-sm-2">
@@ -277,7 +285,7 @@
         <div div class="collapse-container" *ngIf="getWorkSpaceBoardAvailablity('Prototype')">
             <div data-target="#Prototype" class="w100">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <div _ngcontent-vwq-c52="" class="nav-item dropdown no-arrow">
                             <a _ngcontent-vwq-c52="" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle toggle-icon">
                                 <img src="assets/images/down-arrow-green.png">
@@ -302,7 +310,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="collapse-status">Status</div>
                 </div>
                 <div class="col-sm-2">
@@ -313,7 +321,7 @@
             <div id="Prototype">
                 <div class="collapse-head">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <div class="desc bl-5-green">
                                 <input type="text" class="form-control bg-white noborder" placeholder="Desc"
                                 formControlName="prototype" [ngClass]="{ 'is-invalid': submitted && f1.prototype.errors }">
@@ -322,7 +330,7 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <div class="status">Active</div>
                         </div>
                         <div class="col-sm-2">
@@ -456,7 +464,7 @@
         </div>
         -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 ml-30">
                 <div (click)="save()" class="btn button-save">Create Workspace</div>
             </div>
         </div>

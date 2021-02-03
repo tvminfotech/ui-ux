@@ -1,30 +1,30 @@
-<main class="ml-130 mr-15">
+<main class="ml-140 mr-25">
     <div class="container-fluid">
         <div class="page-heading">Workspace Summary</div>
                 <div class="poc-box">
                     <div class="row">
                         <div class="col">
                             <label class="ft-18">WorkSpace Name</label>
-                            <p class="ft-color-gray80">{{POCDetails && POCDetails.wsName}}</p>
+                            <p class="ft-color-gray80 mt-5p">{{POCDetails && POCDetails.wsName}}</p>
                         </div>
                         <div class="col">
                             <label class="ft-18 ">Date Created</label>
-                            <p class="ft-color-gray80">{{commonService.convertDateTimeFormat(POCDetails.createdDate, 'true')}}</p>
+                            <p class="ft-color-gray80 mt-5p">{{commonService.convertDateTimeFormat(POCDetails.createdDate, 'true')}}</p>
                         </div>
                         <div class="col">
                             <label class="ft-18">Status</label>
-                            <p class="ft-color-gray80">{{POCDetails && POCDetails.statusCode}}</p>
+                            <p class="ft-color-gray80 mt-5p">{{POCDetails && POCDetails.statusCode}}</p>
                         </div>
                         <div class="col-sm-4">
                       
                         <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3 mt-5p" (click)="onClosePOC()">Close WorkSpace</button>
+                                <button class="btn button-save ml-3 mt-8p" (click)="onClosePOC()">Close WorkSpace</button>
                             </div>
                         </div>
                         <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3 mt-5p" (click)="onManagePOC()">Manage Workspace</button>
+                                <button class="btn button-save ml-3 mt-8p" (click)="onManagePOC()">Manage Workspace</button>
 
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="row mb-5">
-                    <div class="col-sm-10 mt-4">
+                    <div class="col-sm-10 mt-5">
                         <div class="page-sub-heading">Team</div>
                         <div class="row">
                             <div class="col-sm-5">
@@ -48,17 +48,17 @@
               
                           </div>
                         <div *ngFor="let item of teamDtl">
-                            <div class="bg-white mr-3 border-gray mt-2 radius-all-3">
-                              <div class="row pt-2 pb-2">
+                            <div class="bg-white mr-4 border-gray mt-10 radius-all-3 p-all-10">
+                              <div class="row">
               
-                                <div class="col-sm-5 align-content-center">
+                                <div class="col-sm-5">
                                   <div class="profile-default">{{item.userName.charAt(0).toUpperCase()}}</div>
                                   <span class="profile-name">{{item.userName}}</span>
                                 </div>
-                                <div class="col-sm-4 pt-10 pl-20">
+                                <div class="col-sm-4 pt-13 pl-10">
                                   <span>{{item.roleCode}}</span>
                                 </div>
-                                <div class="col-sm-3  pt-10 pl-25">
+                                <div class="col-sm-3  pt-13 pl-25">
                                   <span>{{commonService.convertDateTimeFormat(item.createdDate, 'false')}}</span>
                                 </div>
                               </div>
@@ -74,39 +74,29 @@
                         <div class="header-box mt-5">
                             <div class="page-sub-heading">Reviews</div>
                         </div>
-                        <div class="row">
+                        <div class="row mr-2">
                             <div class="col-sm-3">
-                                <label class="ft-18">Total Review Comments</label>
+                                <div class="review-heading">Total Review Comments</div>
+                                <div class="review-content">{{totalCount}}</div>
                             </div>
                             <div class="col-sm-3">
-                                <label class="ft-18">Open Comments</label>
+                                <div class="review-heading">Open Comments</div>
+                                <div class="review-content">{{openCount}}</div>
                             </div>
                             <div class="col-sm-3">
-                                <label class="ft-18">Top Reviewer</label>
+                                <div class="review-heading">Top Reviewer</div>
+                                <div class="review-content">{{topReviewerName}}</div>
                             </div>
                             <div class="col-sm-3">
-                                <label class="ft-18">Most Reviewed</label>
+                                <div class="review-heading">Most Reviewed</div>
+                                <div class="review-content">{{mostReviewedPhase}}</div>
                             </div>
 
                         </div>
-                        <div class="row mb-5">
-                            <div class="col-sm-3">
-                                <label class="count">{{totalCount}}</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <label class="count">{{openCount}}</label>
-                            </div>
-                            <div class="col-sm-3r">
-                                <label class="count">{{topReviewerName}}</label>
-                            </div>
-                            <div class="col-sm-3 text-center">
-                                <label class="count">{{mostReviewedPhase}}</label>
-                            </div>
-
-                        </div>
+                     
                     </div>
 
-                    <div class="col-sm-2 milestons-list pl-0 mt-4">
+                    <div class="col-sm-2 milestons-list pl-0 mt-5">
                         
                         <div class="page-sub-heading">Milestone</div>
                         <ul class="mt-10">
