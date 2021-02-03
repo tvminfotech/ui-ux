@@ -89,4 +89,28 @@ export class SignUpSetUpAccountComponent implements OnInit {
       contentStyle: { "max-height": "30%", "overflow": "auto","padding":"0 1.1rem 0rem 1.5rem","border-radius":"10px"},
     });
   }
+  privacyPolicy()
+  {
+    window.open("assets/documents/privacy-policy.pdf", '_blank');
+    /*
+    this.privacyPolicyDialogPtr = this.dialogService.open(PrivacyPolicyComponent, {
+      showHeader:false,
+      closable:false,
+      width: '50%',
+      contentStyle: { "max-height": "30%", "overflow": "auto","padding":"0 1.1rem 0rem 1.5rem","border-radius":"10px"},
+    });
+    */
+  }
+  termsCondition()
+  {
+    window.open("assets/documents/terms-and-conditions.pdf", '_blank');
+    /*
+    this.privacyPolicyDialogPtr = this.dialogService.open(TermsConditionComponent, {
+      showHeader:false,
+      closable:false,
+      width: '50%',
+      contentStyle: { "max-height": "50%", "overflow": "auto","padding":"0 1.1rem 0rem 1.5rem","border-radius":"10px"},
+    });
+    */
+  }
 }

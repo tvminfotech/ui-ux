@@ -1,4 +1,4 @@
-<main class="ml-120">
+<main class="ml-130 mr-15">
     <div class="container-fluid">
         <div class="page-heading">Workspace Summary</div>
                 <div class="poc-box">
@@ -19,12 +19,12 @@
                       
                         <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3" (click)="onClosePOC()">Close WorkSpace</button>
+                                <button class="btn button-save ml-3 mt-5p" (click)="onClosePOC()">Close WorkSpace</button>
                             </div>
                         </div>
                         <div *ngIf="commonService.getRole() =='idea-owner'">
                             <div class="btn-box mt-1">
-                                <button class="btn button-save ml-3" (click)="onManagePOC()">Manage Workspace</button>
+                                <button class="btn button-save ml-3 mt-5p" (click)="onManagePOC()">Manage Workspace</button>
 
                             </div>
                         </div>
@@ -33,31 +33,32 @@
                 </div>
 
                 <div class="row mb-5">
-                    <div class="col-sm-9 mt-5">
+                    <div class="col-sm-10 mt-4">
+                        <div class="page-sub-heading">Team</div>
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-5">
                               <label class="ft-18">Team Members</label>
                             </div>
                             <div class="col-sm-4">
-                              <label class="ft-18 ">Role</label>
+                              <label class="ft-18">Role</label>
                             </div>
-                            <div class="col-sm-4 ">
+                            <div class="col-sm-3">
                               <label class="ft-18">Last Login</label>
                             </div>
               
                           </div>
                         <div *ngFor="let item of teamDtl">
-                            <div class="bg-white mr-5 border-gray mt-2">
+                            <div class="bg-white mr-3 border-gray mt-2 radius-all-3">
                               <div class="row pt-2 pb-2">
               
-                                <div class="col-sm-4 align-content-center">
+                                <div class="col-sm-5 align-content-center">
                                   <div class="profile-default">{{item.userName.charAt(0).toUpperCase()}}</div>
                                   <span class="profile-name">{{item.userName}}</span>
                                 </div>
-                                <div class="col-sm-4 pt-2" style="padding-left: 2rem;">
+                                <div class="col-sm-4 pt-10 pl-20">
                                   <span>{{item.roleCode}}</span>
                                 </div>
-                                <div class="col-sm-4 pt-2" style="padding-left: 3rem;">
+                                <div class="col-sm-3  pt-10 pl-25">
                                   <span>{{commonService.convertDateTimeFormat(item.createdDate, 'false')}}</span>
                                 </div>
                               </div>
@@ -71,35 +72,35 @@
                         
                         
                         <div class="header-box mt-5">
-                            <div class="tab-heading">Reviews</div>
+                            <div class="page-sub-heading">Reviews</div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14 ft-bold">Total Review Comments</label>
+                            <div class="col-sm-3">
+                                <label class="ft-18">Total Review Comments</label>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14 ft-bold">Open Comments</label>
+                            <div class="col-sm-3">
+                                <label class="ft-18">Open Comments</label>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14 ft-bold">Top Reviewer</label>
+                            <div class="col-sm-3">
+                                <label class="ft-18">Top Reviewer</label>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14 ft-bold">Most Reviewed</label>
+                            <div class="col-sm-3">
+                                <label class="ft-18">Most Reviewed</label>
                             </div>
 
                         </div>
                         <div class="row mb-5">
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14">{{totalCount}}</label>
+                            <div class="col-sm-3">
+                                <label class="count">{{totalCount}}</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="count">{{openCount}}</label>
+                            </div>
+                            <div class="col-sm-3r">
+                                <label class="count">{{topReviewerName}}</label>
                             </div>
                             <div class="col-sm-3 text-center">
-                                <label class="ft-14 ">{{openCount}}</label>
-                            </div>
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14">{{topReviewerName}}</label>
-                            </div>
-                            <div class="col-sm-3 text-center">
-                                <label class="ft-14">{{mostReviewedPhase}}</label>
+                                <label class="count">{{mostReviewedPhase}}</label>
                             </div>
 
                         </div>
@@ -120,8 +121,8 @@
                         <ul>
                        
                             <li class="active">                 
-                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
-                                <h4>Initial Requirement</h4>
+                                <p class="ft-gray ft-14 pb-2 txt-caps">Milestone</p>
+                                <div class="ft-18">Initial Requirement</div>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                                    
                             </li> -->
@@ -131,23 +132,23 @@
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                             </li>
                             <li>                                        
-                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
-                                <h4>Application flow</h4>
+                                <p class="ft-gray ft-14 pb-2 txt-caps">Milestone</p>
+                                <div class="ft-18">Application flow</div>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                             </li>
                             <li>                                        
-                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
-                                <h4>Wireframe</h4>
+                                <p class="ft-gray ft-14 pb-2 txt-caps">Milestone</p>
+                                <div class="ft-18">Wireframe</div>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                             </li>
                             <li>                                        
-                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
-                                <h4>Prototype</h4>
+                                <p class="ft-gray ft-14 pb-2 txt-caps">Milestone</p>
+                                <div class="ft-18">Prototype</div>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                             </li>
                             <li>                                        
-                                <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
-                                <h4>Review</h4>
+                                <p class="ft-gray ft-14 pb-2 txt-caps">Milestone</p>
+                                <div class="ft-18">Review</div>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                             </li> -->
                         </ul>
