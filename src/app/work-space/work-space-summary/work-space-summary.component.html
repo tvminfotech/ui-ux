@@ -106,6 +106,17 @@
                     </div>
 
                     <div class="col-sm-3 milestons-list pl-0 mt-5">
+                        
+                        <ul *ngFor="let milestone of milestoneDtl;index as i">
+                            <li [class.active]="milestone.statusCode != 'In-Progress' ">
+                              <p class="ft-gray ft-12 pb-2 txt-caps">Milestone {{i+1}}</p>
+                              <h4>{{milestone.custPhaseName}}</h4>
+                              <p *ngIf="milestone.statusCode != 'In-Progress' " class="ft-gray ft-12">Completed on {{milestone.plannedEndDate | date}}</p>
+                              <p *ngIf="milestone.statusCode == 'In-Progress' " class="ft-gray ft-12">{{milestone.statusCode}}</p>
+                          
+                            </li>
+              
+                        <!-- </ul>
                         <ul>
                        
                             <li class="active">                 
@@ -113,8 +124,8 @@
                                 <h4>Initial Requirement</h4>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
                                    
-                            </li>
-                            <li>                                        
+                            </li> -->
+                            <!-- <li>                                        
                                 <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
                                 <h4>Process flow</h4>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
@@ -138,7 +149,7 @@
                                 <p class="ft-gray ft-12 pb-2 txt-caps">Milestone</p>
                                 <h4>Review</h4>
                                 <p class="ft-gray ft-12">Completed on 31st Dec 2020</p>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

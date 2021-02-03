@@ -9,7 +9,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 
 export class WorkSpaceSummaryService {
-   // token = localStorage.getItem('tempCurrentUserToken');
+  // token = localStorage.getItem('tempCurrentUserToken');
   // header = {
   //   headers: new HttpHeaders()
   //     .set('Authorization', `Bearer ${this.token}`)
@@ -39,6 +39,15 @@ export class WorkSpaceSummaryService {
   getDashboard(id: any, header: any) {
     this.ngxService.start();
     return this.http.get<any>(`${environment.apiUrl}workspace/summary/review/counts?micrositeId=${id.micrositeId}&workspaceId=${id.workspaceId}`, header)
+      .pipe(map(data => {
+        this.ngxService.stop();
+        return data;
+      }),
+      );
+  }
+  getMilestones(id: any, header) {
+    this.ngxService.start();
+    return this.http.get<any>(`${environment.apiUrl}workspace/milestones?micrositeId=${id.micrositeId}&workspaceId=${id.workspaceId}`, header)
       .pipe(map(data => {
         this.ngxService.stop();
         return data;
