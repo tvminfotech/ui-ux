@@ -5,13 +5,13 @@
                 <div class="row mt-5">
                     <div class="col-sm-3">
                         <div class="radio">
-                            <input (click)="radioClick('Upload')" type="radio" id="tab1" name="optionsRadios">
+                            <input (click)="radioClick('Upload')" type="radio" id="tab1" name="optionsRadios" [checked]="myEstimationFlag">
                             <label for="tab1">Upload my estimation document</label>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="radio">
-                            <input (click)="radioClick('HiveZen')" type="radio" id="tab2" name="optionsRadios" checked>
+                            <input (click)="radioClick('HiveZen')" type="radio" id="tab2" name="optionsRadios" [checked]="hivezenEstimation" >
                             <label for="tab2">Use the HiveZen Estimation</label>
                         </div>
                     </div>
@@ -34,21 +34,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white">
-                                <td>Initial Requirement</td>
-                                <td class="badge-status bg-purple ft-white"><span>20 Months</span></td>
-                                <td class="badge-status bg-light-gray"><span>$70,000</span></td>
-                                <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
+                            <tr class="bg-white" *ngFor="let hivezenPhaseDtlobj of hivezenPhaseDtl" >
+                                <td>{{hivezenPhaseDtlobj.devPhase}}</td>
+                                <td class="badge-status bg-purple ft-white"><span>{{hivezenPhaseDtlobj.manMonthsEffort}}</span></td>
+                                <td class="badge-status bg-light-gray"><span>${{hivezenPhaseDtlobj.costs}}</span></td>
+                                <td style="width: 20px;"><a (click)="editEstimation(hivezenPhaseDtlobj)" style="cursor: pointer;">
                                     <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
                             </tr>
-                            <tr class="bg-white">
+                            <!-- <tr class="bg-white">
                                 <td>Process Flow</td>
                                 <td class="badge-status bg-purple ft-white"><span>10 Months</span></td>
                                 <td class="badge-status bg-light-gray"><span>$15,000</span></td>
                                 <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
                                     <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
-                            </tr>
-                            <tr class="bg-white">
+                            </tr> -->
+                            <!-- <tr class="bg-white">
                                 <td>Application Flow</td>
                                 <td class="badge-status bg-purple ft-white"><span>7 Months</span></td>
                                 <td class="badge-status bg-light-gray"><span>$30,000</span></td>
@@ -61,7 +61,7 @@
                                 <td class="badge-status bg-light-gray"><span>$7,000</span></td>
                                 <td style="width: 20px;"><a (click)="editEstimation()" style="cursor: pointer;">
                                     <i class="fa fa-edit" style="font-size: 14px;"></i></a></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -71,27 +71,32 @@
                     <input type="text" class="txt-outline txt-transparent ml-10 w-95 p-all-10" placeholder="Add another row">
                 </div>
                 </div>
+                <form [formGroup]="formGroup">
                     <div class="row" *ngIf="isUploadFlag">
-                        <div class="col-sm-3 mb-5 mt-5">
-                            <div class="upload-btn-wrapper1">
-                                <button class="btn1">Upload File</button>
+                        <div class="mt-40">
+                            <div class="col-sm-8">
+                                <input formControlName="uploadFile" class="txt-lable" id="uploadFile" type="file"
+                                name="uploadFile" (change)="fileUpload($event.target.files)"  />
+                                <button class="btn1" (click)="upload()">Upload File</button>
                                 <input type="file" name="myfile" />
                             </div>
                         </div>
                     </div>
+                </form>
+                    
                     <div class="row" *ngIf="isUploadFlag">
                         <div class="col-sm-3">
                             <div class="excel-box">
                                 <img src="assets/images/excel.PNG" width="50" class="mb-2">
-                                <p class="mb-3 ft-12">Projects Estimation.xlxs</p>
-                                <button class="btn btn-outline mr-15 bt-3-purple">View</button>
+                                <p class="mb-3 ft-12">{{fileName}}</p>
+                                <button (click)="download()" class="btn button-save mr-15 bt-3-purple">View</button>
                             </div>
                         </div>
                     </div>
-                <div class="row mt-5 ml-2">
+                <!-- <div class="row mt-5 ml-2">
 
                     <div *ngIf="!isUploadFlag" class="btn button-save">Save</div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="mt-5 pl-3 pb-1">Comments</div>
                 </div>
