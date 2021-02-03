@@ -84,7 +84,7 @@ export class WorkSpaceWireframeComponent implements OnInit {
       .subscribe(
         (data: any) => {
           if (data.result_status.toUpperCase() == "SUCCESS" && data.result_data !=null) {
-            this.link = data.result_data[0]['doclink'];
+            this.link = data.result_data[0] ?  data.result_data[0]['doclink'] : '';
             this.variablesSetting(data.result_data[0]);
             return;
           }

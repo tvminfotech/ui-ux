@@ -9,7 +9,7 @@
       <div class="input-group tab-menu-item" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
         <ng-container *ngIf="ShowPhase(workSpaceBoardName.custPhaseName)">
           <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.custPhaseName)" class="w-85">
-            <button [class.active]="phaseId== workSpaceBoardName.id" class="tablinks">
+            <button [class.active]="phaseId== workSpaceBoardName.id" class="tablinks" style="padding-left: 10px;padding-top: 2px;padding-bottom: 0px;padding-right: 0px;">
               <div>
                 <img src="assets/images/Initial-Requirement.png">
                 {{workSpaceBoardName.custPhaseName}}</div>
