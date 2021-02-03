@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./work-space-summary.component.css']
 })
 export class WorkSpaceSummaryComponent implements OnInit {
-
+  milestoneDtl:any;
   POCDetails: any=[];
   boardId: string;
   wsPocId: string;
@@ -39,6 +39,7 @@ export class WorkSpaceSummaryComponent implements OnInit {
     this.getPOCDTL();
     this.getTeamDtl();
     this.getDashboard();
+    this.getMilestones();
   }
 
   getTeamDtl() {
@@ -104,7 +105,7 @@ export class WorkSpaceSummaryComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data: any) => {
-          if (data.result_status.toUpperCase() == "SUCCESS") {
+          if (data.result_status.toUpperCase() == "SUCCESS" && data.result_data !=null) {
             //this.commentsReceived = data.result_data;
 
             this.totalCount =data.result_data.reviewTotalCount;
@@ -118,5 +119,18 @@ export class WorkSpaceSummaryComponent implements OnInit {
         error => {
         });
   }
-
+  getMilestones(){
+    const param = { micrositeId: this.micrositeId, workspaceId: this.wsPocId };
+    this.workSpaceSummary.getMilestones(param, this.header)
+      .pipe(first())
+      .subscribe(
+        (data: any) => {
+          if (data.result_status.toUpperCase() === 'SUCCESS' && data.result_data !=null) {
+            this.milestoneDtl = data.result_data;
+            return;
+          }
+        },
+        error => {
+        });
+  }
 }
