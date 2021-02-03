@@ -9,21 +9,21 @@
                     <div class="sub-heading" style="font-weight: inherit;">Let's get started with a few simple steps</div>
                     <form [formGroup]="signupForm"  (ngSubmit)="signup()" id="Signup">
                     <div class="row pt-50">
-                        <div class="col-sm-12"><div class="txt-lable">Full Name</div></div>
+                        <div class="col-sm-12"><div class="txt-lable">Full Name*</div></div>
                         <div class="col-sm-12"><input type="text" class="form-control bg-white" id="FullName" placeholder="Enter full name"
                         formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f1.firstName.errors }">
                         <div *ngIf="submitted && f1.firstName.errors" class="invalid-feedback">
-                            <div *ngIf="f1.firstName.errors.required">First Name is required</div>
+                            <div *ngIf="f1.firstName.errors.required">Full Name is required</div>
                           </div>
                     </div>
-                        <div class="col-sm-12"><div class="txt-lable">Password</div></div>
+                        <div class="col-sm-12"><div class="txt-lable">Password*</div></div>
                         <div class="col-sm-12"><input type="password" class="form-control bg-white" id="Password" placeholder="Password"
                         formControlName="password" [ngClass]="{ 'is-invalid': submitted && f1.password.errors }">
                         <div *ngIf="submitted && f1.password.errors" class="invalid-feedback">
                             <div *ngIf="f1.password.errors.required">Password is required</div>
                           </div>
                     </div>
-                        <div class="col-sm-12"><div class="txt-lable">Account Name</div></div>
+                        <div class="col-sm-12"><div class="txt-lable">Account Name*</div></div>
                         <div class="input-group col-sm-12">
                             <input type="text" class="form-control bg-white" id="AccountName" placeholder="Enter your Account Name"
                         formControlName="micrositeName" [ngClass]="{ 'is-invalid': submitted && f1.micrositeName.errors }">
@@ -32,7 +32,7 @@
                             <div *ngIf="f1.micrositeName.errors.required">Account Name is required</div>
                           </div>
                     </div>
-                        <div class="col-sm-12 pt-20"><div class="font-12 text-center"><input type="checkbox" id ="chkTems" class="txt-outline"><span class="txt-gray"> I agree to the <span class="txt-purple">Terms of Service</span> and <span class="txt-purple">Privacy Policy</span></span></div></div>  
+                        <div class="col-sm-12 pt-20"><div class="font-12 text-center"><input type="checkbox" id ="chkTems" class="txt-outline"><span class="txt-gray"> I agree to the <span class="txt-purple" style="cursor: pointer;" (click)="termsCondition()">Terms of Service</span> and <span class="txt-purple" style="cursor: pointer;" (click)="privacyPolicy()">Privacy Policy</span></span></div></div>  
                         <div class="col-sm-12 pt-20"><button  class="btn button-save mt-5 w100">Sign up</button></div>
                     </div>
                 </form>
