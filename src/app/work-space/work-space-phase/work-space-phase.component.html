@@ -1,5 +1,5 @@
 <app-work-space-sub-nav></app-work-space-sub-nav>
-<main class="ml-120">
+<main class="ml-116">
   <div class="tab-container">
     <div class="tab">
       <div class="tab-heading">
@@ -8,10 +8,10 @@
       </div>
       <div class="input-group tab-menu-item" *ngFor="let workSpaceBoardName of workSpaceBoardNames;">
         <ng-container *ngIf="ShowPhase(workSpaceBoardName.custPhaseName)">
-          <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.custPhaseName)" class="w-85">
-            <button [class.active]="phaseId== workSpaceBoardName.id" class="tablinks" style="padding-left: 10px;padding-top: 2px;padding-bottom: 0px;padding-right: 0px;">
+          <a (click)="phaseClick(workSpaceBoardName.id,workSpaceBoardName.custPhaseName)">
+            <button [class.active]="phaseId== workSpaceBoardName.id" class="tablinks ft-lighter">
               <div>
-                <img src="assets/images/Initial-Requirement.png">
+                <img src="assets/images/Initial-Requirement.png" class="pr-7">
                 {{workSpaceBoardName.custPhaseName}}</div>
             </button></a>
           <div class="input-group-prepend">
@@ -22,7 +22,7 @@
           </a>
           -->
             <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="assets/images/drop-down.png">
+              <img src="assets/images/drop-down.png" class="pt-5p">
             </a>
 
             <div aria-labelledby="userDropdown" class="dropdown-menu toggle-menu shadow animated--grow-in mt-10">
