@@ -2,8 +2,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import {WorkSpaceMilestonesService} from './work-space-milestones.service';
-import {  CommonService} from '../../utils/common.service';
+import { WorkSpaceMilestonesService } from './work-space-milestones.service';
+import { CommonService } from '../../utils/common.service';
 
 @Component({
   selector: 'app-work-space-milestones',
@@ -29,26 +29,26 @@ export class WorkSpaceMilestonesComponent implements OnInit {
     };
   wsPocId: string;
   micrositeId: string;
-  milestoneDtl:any;
-  phaseId:any;
-  wsPocName:any;
-  workspaceDtlId:any;
-  constructor(private workspace:WorkSpaceMilestonesService,
+  milestoneDtl: any;
+  phaseId: any;
+  wsPocName: any;
+  workspaceDtlId: any;
+  constructor(private workspace: WorkSpaceMilestonesService,
     private actRoute: ActivatedRoute,
     private route: Router,
-    private commonService:CommonService) { }
+    private commonService: CommonService) { }
 
   ngOnInit(): void {
     this.getParams();
     this.getMilestones();
   }
-  getMilestones(){
+  getMilestones() {
     const param = { micrositeId: this.micrositeId, workspaceId: this.wsPocId };
     this.workspace.getMilestones(param, this.header)
       .pipe(first())
       .subscribe(
         (data: any) => {
-          if (data.result_status.toUpperCase() === 'SUCCESS' && data.result_data !=null) {
+          if (data.result_status.toUpperCase() === 'SUCCESS' && data.result_data != null) {
             this.milestoneDtl = data.result_data;
             return;
           }
@@ -64,40 +64,31 @@ export class WorkSpaceMilestonesComponent implements OnInit {
       });
     this.micrositeId = JSON.parse(localStorage.getItem('micrositeId'));
   }
-  onChangePlanStartDate(event,record)
-  {
+  onChangePlanStartDate(event, record) {
     delete record.plannedStartDate;
-    record["plannedStartDate"] =event.target.value;
+    record["plannedStartDate"] = event.target.value;
   }
-  onChangePlanEndDate(event,record)
-  {
+  onChangePlanEndDate(event, record) {
     delete record.plannedEndDate;
-    record["plannedEndDate"] =event.target.value;
+    record["plannedEndDate"] = event.target.value;
   }
-  viewDetails(record)
-  {
-    this.phaseId =record.phaseId;
-    this.workspaceDtlId =record.workspaceDtlId;
+  viewDetails(record) {
+    this.phaseId = record.phaseId;
+    this.workspaceDtlId = record.workspaceDtlId;
     this.route.navigateByUrl('/workspace/view/' + this.wsPocId + '/' + this.wsPocName + '/' + this.workspaceDtlId + '/phase/' + this.workSpaceBoardRouterLink[record.custPhaseName]);
   }
-  saveDetails(record)
-  {
+  
+  complete(record, status) {
 
-  }
-  complete(record)
-  {
-
-    if (record.plannedStartDate == null || record.plannedStartDate =="")
-    {
+    if (record.plannedStartDate == null || record.plannedStartDate == "") {
       this.commonService.failureMessage("Enter planned start date.");
       return;
     }
-    if (record.plannedEndDate == null || record.plannedEndDate =="")
-    {
+    if (record.plannedEndDate == null || record.plannedEndDate == "") {
       this.commonService.failureMessage("Enter planned end date.");
       return;
     }
-    record["statusCode"]="Completed"
+    record["statusCode"] = status;
     this.workspace.complete(record, this.header).pipe(first())
       .subscribe(
         (data: any) => {

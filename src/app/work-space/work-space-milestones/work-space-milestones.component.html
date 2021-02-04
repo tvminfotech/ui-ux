@@ -33,10 +33,10 @@
                     <div (click)="viewDetails(milestone)" class="btn button-save mt-47">View</div>
                   </div>
                   <div class="col-sm-1">
-                    <div (click)="saveDetails(milestone)" class="btn button-save mt-47">Save</div>
+                    <div (click)="complete(milestone, 'In-Progress')" class="btn button-save mt-47">Save</div>
                   </div>
                   <div class="col-sm-1">
-                    <div (click)="complete(milestone)" class="btn button-save mt-47">Complete</div>
+                    <div (click)="complete(milestone, 'Completed')" class="btn button-save mt-47">Complete</div>
                   </div>
                 </div>
               </li>
