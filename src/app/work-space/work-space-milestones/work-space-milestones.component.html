@@ -1,7 +1,8 @@
 <main class="ml-140 mr-25">
   <div class="container-fluid">
-      <div class="page-heading">Milestones</div>
+    <div class="page-heading">Milestones</div>
 
+<<<<<<< HEAD
       <div class="row mb-5">
           <div class="col-sm-12 milestons-list">
               <ul>
@@ -31,10 +32,49 @@
                           <div (click)="saveDetails(milestone)" class="btn button-save mt-47 pull-left mr-3">Save</div>
                           <div (click)="complete(milestone)" class="btn button-save mt-47 pull-left">Complete</div>
                       </div>
+=======
+    <div class="row mb-5">
+      <div class="col-sm-12 milestons-list mt-5">
+        <ul>
+          <ng-container *ngFor="let milestone of milestoneDtl;index as i">
+            <div *ngIf="i < 5">
+              <li [class.active]="milestone.statusCode != 'In-Progress' ">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="ft-gray ft-12 pb-4">Milestone {{i+1}}</p>
+                    <h4>{{milestone.custPhaseName}}</h4>
+                    <p *ngIf="milestone.statusCode != 'In-Progress' " class="ft-gray ft-12">Completed on
+                      {{milestone.plannedEndDate | date}}</p>
+                    <p *ngIf="milestone.statusCode == 'In-Progress' " class="ft-gray ft-12">{{milestone.statusCode}}</p>
+
+>>>>>>> cab291c78befd943ec1a21ff349abf00cd8eff0e
                   </div>
+                  <div class="col-sm-3  bl-2-green">
+                    <p class="pb-25"></p>
+                    <p class="ft-10">Planned Start Date</p>
+                    <input (change)="onChangePlanStartDate($event,milestone)" type="date"
+                      [(ngModel)]="milestone.plannedStartDate" class="txt-outline w-80">
+                  </div>
+                  <div class="col-sm-3">
+                    <p class="pb-25"></p>
+                    <p class="ft-10">Planned End Date</p>
+                    <input (change)="onChangePlanEndDate($event,milestone)" type="date"
+                      [(ngModel)]="milestone.plannedEndDate" class="txt-outline w-80">
+                  </div>
+                  <div class="col-sm-1">
+                    <div (click)="viewDetails(milestone)" class="btn button-save mt-47">View</div>
+                  </div>
+                  <div class="col-sm-1">
+                    <div (click)="saveDetails(milestone)" class="btn button-save mt-47">Save</div>
+                  </div>
+                  <div class="col-sm-1">
+                    <div (click)="complete(milestone)" class="btn button-save mt-47">Complete</div>
+                  </div>
+                </div>
               </li>
-            </ng-container>
-                  <!--
+            </div>
+          </ng-container>
+          <!--
                   <li class="active">
                       <div class="row">
                           <div class="col-sm-3">
@@ -180,14 +220,17 @@
                       </div>
                   </li>
               -->
-              </ul>
-          </div>
+        </ul>
       </div>
+    </div>
 
   </div>
 </main>
+<<<<<<< HEAD
 <footer>
     <div class="container-fluid">
       <div class="footer">©HiveZen.All rights reserved</div>
     </div>
   </footer>
+=======
+>>>>>>> cab291c78befd943ec1a21ff349abf00cd8eff0e

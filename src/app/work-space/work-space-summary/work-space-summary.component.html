@@ -100,6 +100,7 @@
                         
                         <div class="page-sub-heading">Milestone</div>
                         <ul class="mt-10">
+<<<<<<< HEAD
                             <ng-container *ngFor="let milestone of milestoneDtl;index as i">
                              <li [class.active]="milestone.statusCode != 'In-Progress' ">
                               <p class="ft-gray ft-14 pb-2 txt-caps">Milestone {{i+1}}</p>
@@ -108,6 +109,17 @@
                               <p *ngIf="milestone.statusCode == 'In-Progress' " class="ft-gray ft-12">{{milestone.statusCode}}</p>
                           
                             </li>
+=======
+                            <ng-container *ngFor="let milestone of milestoneDtl;index as i;">
+                                <div *ngIf="i < 5">
+                                    <li [class.active]="milestone.statusCode != 'In-Progress' ">
+                                     <p class="ft-gray ft-14 pb-2 txt-caps">Milestone {{i+1}}</p>
+                                     <div class="ft-18">{{milestone.custPhaseName}}</div>
+                                     <p *ngIf="milestone.statusCode != 'In-Progress' " class="ft-gray ft-12">Completed on {{milestone.plannedEndDate | date}}</p>
+                                     <p *ngIf="milestone.statusCode == 'In-Progress' " class="ft-gray ft-12">{{milestone.statusCode}}</p>                                 
+                                   </li>
+                                </div>
+>>>>>>> cab291c78befd943ec1a21ff349abf00cd8eff0e
                         </ng-container>
                         <!--
                             <li class="active">                 
