@@ -67,18 +67,22 @@ export class WorkSpaceMilestonesComponent implements OnInit {
   onChangePlanStartDate(event,record)
   {
     delete record.plannedStartDate;
-    record["plannedStartDate"] =event.originalTarget.value;
+    record["plannedStartDate"] =event.target.value;
   }
   onChangePlanEndDate(event,record)
   {
     delete record.plannedEndDate;
-    record["plannedEndDate"] =event.originalTarget.value;
+    record["plannedEndDate"] =event.target.value;
   }
   viewDetails(record)
   {
     this.phaseId =record.phaseId;
     this.workspaceDtlId =record.workspaceDtlId;
     this.route.navigateByUrl('/workspace/view/' + this.wsPocId + '/' + this.wsPocName + '/' + this.workspaceDtlId + '/phase/' + this.workSpaceBoardRouterLink[record.custPhaseName]);
+  }
+  saveDetails(record)
+  {
+
   }
   complete(record)
   {
