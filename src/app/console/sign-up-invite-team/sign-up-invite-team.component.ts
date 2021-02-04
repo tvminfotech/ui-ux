@@ -51,7 +51,7 @@ export class SignUpInviteTeamComponent implements OnInit {
       .subscribe(
         (data: any) => {
           if (data.result_status.toUpperCase() === 'SUCCESS') {
-            this.commonService.successMessage(data.result_msg);
+            // this.commonService.successMessage(data.result_msg);
             this.Close();
             return;
           }
