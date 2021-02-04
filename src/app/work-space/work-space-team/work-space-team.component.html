@@ -1,16 +1,66 @@
-<main class="ml-120">
+<main class="ml-140 mr-25">
   <div class="container-fluid">
     <div class="row" *ngIf="commonService.getRole() =='idea-owner'">
       <div class="col-sm-9">
         <div class="page-heading">Manage Team</div>
       </div>
       <div class="col-sm-3 align-right">
-        <button (click)="addResource()" class="btn btn-outline-purple mt-20">Add Internal Resource</button>
+        <button (click)="addResource()" class="btn btn-outline-purple mt-30">Add Internal Resource</button>
       </div>
     </div>
 
     <div>
-      <table id="example" class="table mt-50">
+      
+
+      <div class="row mb-5">
+        <div class="col-sm-12">
+          <div class=" p-all-10">
+            <div class="row">
+                <div class="col-sm-4">
+                  <label class="ft-18">Resource</label>
+                </div>
+                <div class="col-sm-4">
+                  <label class="ft-18">Email</label>
+                </div>
+                <div class="col-sm-2">
+                  <label class="ft-18">Type</label>
+                </div>
+                <div class="col-sm-2">
+                  <label class="ft-18">Role</label>
+                </div>
+  
+              </div>
+            </div>
+            <div *ngFor="let teamListObj of teamList">
+                <div class="bg-white border-gray mt-10 radius-all-3 p-all-10">
+                  <div class="row">
+  
+                    <div class="col-sm-4">
+                      <div class="font-semibold pl-8">{{teamListObj.userName}}</div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div>{{teamListObj.email}}</div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div>{{teamListObj.usertype}}</div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div>{{teamListObj.roleCode}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+      <table id="example" class="table">
         <thead>
           <tr>
             <!-- <th *ngIf="commonService.getRole() =='idea-owner'"></th> -->
@@ -21,8 +71,9 @@
             <!-- <th>Status</th> -->
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let teamListObj of teamList">
+       
+        <tbody *ngFor="let teamListObj of teamList">
+          <tr>
             <!-- <td *ngIf="commonService.getRole() =='idea-owner'" style="width: 20px;"><a (click)="editTeam(teamListObj)"
                 style="cursor: pointer;">
                 <i class="fa fa-edit" style="font-size: 14px;"></i></a></td> -->
