@@ -32,30 +32,8 @@
                           <div (click)="complete(milestone)" class="btn button-save mt-47 pull-left">Complete</div>
                       </div>
                   </div>
-                  <div class="col-sm-3  bl-2-green">
-                    <p class="pb-25"></p>
-                    <p class="ft-10">Planned Start Date</p>
-                    <input (change)="onChangePlanStartDate($event,milestone)" type="date"
-                      [(ngModel)]="milestone.plannedStartDate" class="txt-outline w-80">
-                  </div>
-                  <div class="col-sm-3">
-                    <p class="pb-25"></p>
-                    <p class="ft-10">Planned End Date</p>
-                    <input (change)="onChangePlanEndDate($event,milestone)" type="date"
-                      [(ngModel)]="milestone.plannedEndDate" class="txt-outline w-80">
-                  </div>
-                  <div class="col-sm-1">
-                    <div (click)="viewDetails(milestone)" class="btn button-save mt-47">View</div>
-                  </div>
-                  <div class="col-sm-1">
-                    <div (click)="saveDetails(milestone)" class="btn button-save mt-47">Save</div>
-                  </div>
-                  <div class="col-sm-1">
-                    <div (click)="complete(milestone)" class="btn button-save mt-47">Complete</div>
-                  </div>
-                </div>
+                 
               </li>
-            </div>
           </ng-container>
           <!--
                   <li class="active">
