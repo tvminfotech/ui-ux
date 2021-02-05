@@ -37,6 +37,7 @@ export class WorkSpacePublishPocComponent implements OnInit {
         this.boardId = params['params'].boardId;
         this.wsPocId = params['params'].subNav
       });
+      
   }
 
   loadIframe() {
